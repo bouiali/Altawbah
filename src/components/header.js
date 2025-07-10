@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const HeaderContainer = styled.header`
     position: absolute;
@@ -29,7 +28,6 @@ const HeaderContainer = styled.header`
         cursor: pointer;
     }
     .sections{
-        display: flex;
         justify-content: space-between;
         gap: 30px;
         .active{
@@ -67,51 +65,57 @@ const HeaderContainer = styled.header`
             background-color: white;
         }
     }
-    .down{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        position: absolute;
-        width: 100%;
-        top: 100%;
-        left: 0;
-        padding: 20px 0;
-        z-index: 3;
-        background-color: rgb(0 0 0 / 70%);
-        border-bottom: 3px solid green;
-        li{
-            padding-left: 20px;
-        }
-        li:hover{
-            color: green;
-        }
-    }
     @media (max-width: 850px){
         .sections{
             display: none;
+            flex-direction: column;
+            gap: 20px;
+            position: absolute;
+            width: 100%;
+            top: 100%;
+            left: 0;
+            padding: 20px 0;
+            z-index: 3;
+            background-color: rgb(0 0 0 / 70%);
+            border-bottom: 3px solid green;
+            li{
+                padding-left: 20px;
+                &::before{
+                    width: 0;
+                }
+            }
+            li:hover{
+                color: green;
+            }
         }
         .stack{
             display: flex;
             flex-direction: column;
             gap: 7px;
+            &:hover{
+                .section{
+                    display: flex;
+                }
+            }
+        }
+    }
+    @media (min-width: 850px){
+        .sections{
+            display: flex !important;
         }
     }
 `;
 
 function Header(){
-
-    let classNames = ["sections", "down"];
-    let [index, setIndex] = useState(0);
-
     return(
         <HeaderContainer>
             <img src="images/navbarLogo.png" alt="logo"></img>
             <nav>
-                <ul className={classNames[index]}>
+                <ul className="sections">
                     <Link to={"/"}>
                         <li className='active'>acceuil</li>
                     </Link>
-                    <Link to={"/#packages"}>
+                    <Link to={"/#trips"}>
                         <li>Packages</li>
                     </Link>
                     <Link to={"/#services"}>                        
@@ -121,7 +125,14 @@ function Header(){
                         <li>Contactez nous</li>
                     </Link>
                 </ul>
-                <ul className='stack' onClick={()=>{setIndex((index+1) % 2);}}>
+                <ul className='stack' onClick={()=>{
+                    const sections = document.querySelector(".sections")
+                    if(sections.style.display === "flex"){
+                        sections.style.display = "none";
+                    }else{
+                        sections.style.display = "flex";
+                    }
+                }}>
                     <span></span>
                     <span></span>
                     <span></span>

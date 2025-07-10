@@ -7,7 +7,7 @@ import trips from '../data/trips.json';
 import Package from '../components/package';
 import Service from '../components/service';
 import Trip from '../components/trip';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 
 const Landing = styled.section`
@@ -94,6 +94,16 @@ const Landing = styled.section`
             span{
                 font-size: 40px;
             }
+        }
+    }
+    @media(max-width: 430px){
+        .text p{
+            font-size: medium;
+        }
+    }
+    @media(max-width: 365px){
+        .text p{
+            font-size: small;
         }
     }
 `;
@@ -344,7 +354,9 @@ function Home(){
                 <div className='text'>
                     <h2><span>altawbah voyages</span></h2>
                     <p>votre chemin vers la maison sacree</p>
-                    <button onClick={()=>{ window.open("#packages","_self") }}>nos packages</button>
+                    <Link to={"/#trips"}>
+                        <button>nos packages</button>
+                    </Link>
                 </div>
                 <i class="fa-solid fa-chevron-left" 
                     onClick={()=>{
@@ -389,7 +401,7 @@ function Home(){
 
             {/* trip */}
 
-            <Trips id='Trips'>
+            <Trips id='trips'>
                 <SectionHeading>
                     <h2>nos packages</h2>
                 </SectionHeading>
