@@ -1,0 +1,16 @@
+{
+    "services":[
+        {
+            "name":"reservation de TGV",
+            "icon":"fa-solid fa-train-subway",
+            "description":"Transfert en TGV entre Médine et Makkah : 90 € (Eco) – 130 € (Business) – Trajet de 2h15 au lieu de 6 heures en car, comprenant les billets de TGV, les transferts hôtel-gare / gare-hôtel.",
+            "price":"90$"
+        },
+        {
+            "name":"pousseur",
+            "icon":"fa-solid fa-wheelchair",
+            "description":"possibiliter de reserver un pousseur pour les persones en necessiter afin d'accomplire la omra.",
+            "price":"100$"
+        }
+    ]
+}
