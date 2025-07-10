@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Altawbah/static/css/main.dc4d6ff2.css",
-    "main.js": "/Altawbah/static/js/main.bbe7b6bc.js",
+    "main.js": "/Altawbah/static/js/main.24763e59.js",
     "static/js/453.531d4b9c.chunk.js": "/Altawbah/static/js/453.531d4b9c.chunk.js",
     "index.html": "/Altawbah/index.html",
     "main.dc4d6ff2.css.map": "/Altawbah/static/css/main.dc4d6ff2.css.map",
-    "main.bbe7b6bc.js.map": "/Altawbah/static/js/main.bbe7b6bc.js.map",
+    "main.24763e59.js.map": "/Altawbah/static/js/main.24763e59.js.map",
     "453.531d4b9c.chunk.js.map": "/Altawbah/static/js/453.531d4b9c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dc4d6ff2.css",
-    "static/js/main.bbe7b6bc.js"
+    "static/js/main.24763e59.js"
   ]
 }

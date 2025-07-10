@@ -3,6 +3,7 @@ import ImageSlider from "../components/imageSlider";
 import { useLocation } from "react-router-dom";
 import { SectionHeading } from "../globalStyles";
 import { useEffect } from "react";
+import Price from "../components/price";
 
 const TripDetailsContainer = styled.div`
     background-color: transparent;
@@ -38,6 +39,24 @@ const TripDetailsContainer = styled.div`
         padding: 20px;
         li{
             padding: 10px;
+        }
+    }
+    .package-details{
+        .summary{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+            padding: 0 0 20px 0;
+            button{
+                color: white;
+                background-color: green;
+            }
+            h1{
+                font-size: 30px;
+                line-height: 1.7;
+            }
         }
     }
     .package-features{
@@ -80,7 +99,7 @@ const TripDetailsContainer = styled.div`
             padding: 20px 0;
         }
         #flight-information{
-            border-bottom: 1px solid #777;
+            /*border-bottom: 1px solid #777;*/
         }
     }
     .tickets{
@@ -126,6 +145,14 @@ const TripDetailsContainer = styled.div`
             }
         }
     }
+    #pricing{
+        >div{
+            display: flex;
+            justify-content: space-around; 
+            flex-wrap: wrap;
+            gap: 35px;
+        }
+    }
     @media(max-width: 950px){
         .hotel-details{
             flex-direction: column;
@@ -157,7 +184,7 @@ const TripDetailsContainer = styled.div`
 
 function TripDetails(){
     const location = useLocation();
-    const {trip, tripIndex} = location.state;
+    const {trip} = location.state;
     const ticketDetails = trip.ticket_details;
 
     function goTo(id){
@@ -211,6 +238,8 @@ function TripDetails(){
         document.querySelector(".package-details").scrollIntoView();
     },[])
 
+    let date = new Date;
+
     return(
         <TripDetailsContainer>
             <div className="land" ></div>
@@ -218,6 +247,16 @@ function TripDetails(){
                 <SectionHeading>
                     <h2>details</h2>
                 </SectionHeading>
+                <div className="summary">
+                    <h1>
+                        Départ {trip.from} <br/> 
+                        Omra {trip.month} {date.getFullYear()} <br/>
+                        {
+                            starsMaker(trip.package_type)
+                        }
+                    </h1>
+                    <button onClick={()=>document.getElementById("pricing").scrollIntoView()}>Réserve</button>
+                </div>
                 <h3>
                     <i class="fa-solid fa-link"></i>
                     liens de page :
@@ -381,11 +420,11 @@ function TripDetails(){
                         <div className="details">
                             <div>
                                 <i class="fa-solid fa-train-subway"></i>
-                                <p>Réservation de train : pour voyager entre Médine et La Mecque, cela prend 2h au lieu de 4h en voiture, transport compris entre l'hôtel et la gare, 90$ pour l'économique ou 130$ pour les affaires.</p>
+                                <p>Réservation de train : pour voyager entre Médine et La Mecque, cela prend 2h au lieu de 4h en voiture, transport compris entre l'hôtel et la gare, 90€ pour l'économique ou 130€ pour les affaires.</p>
                             </div>
                             <div>
                                 <i class="fa-solid fa-wheelchair"></i>
-                                <p>pousseur : possibiliter de reserver un pousseur pour les persones en necessiter afin d'accomplire la omra.</p>
+                                <p>pousseur : possibiliter de reserver un pousseur pour les persones en necessiter afin d'accomplire la omra prix de prestation 100€.</p>
                             </div>
                         </div>
                     </div>
@@ -427,17 +466,24 @@ function TripDetails(){
                         </div>
                     </div>
                 </div>
+                {/*
                 <div id="trip-program">
                     <h3>
                         <i class="fa-solid fa-calendar-days"></i>
                         programme du voyage :
                     </h3>
                 </div>
+                */}
             </section>
             <section id="pricing" style={{backgroundColor:"#cecece"}}>
                 <SectionHeading>
-                    <h2>prix</h2>
+                    <h2>tarifs</h2>
                 </SectionHeading>
+                <div>
+                    <Price chamber="quade" bad="4" price={trip.price.quade}></Price>
+                    <Price chamber="triple" bad="3" price={trip.price.triple}></Price>
+                    <Price chamber="double" bad="2" price={trip.price.double}></Price>
+                </div>
             </section>
         </TripDetailsContainer>
     );

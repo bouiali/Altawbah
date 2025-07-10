@@ -32,17 +32,12 @@ const TripContainer = styled.div`
         color: green;
         font-size: 30px;
         font-weight: 900;
-        text-transform: uppercase;
         margin: 20px 0;
     }
     img{
         width: 100%;
-        border-radius: 3px;
+        border-radius: 10px;
         transition: 500ms;
-    }
-    img:hover{
-        overflow: hidden;
-        transform: scale(110%);
     }
     .more{
         display: flex;
@@ -91,18 +86,18 @@ function Trip({el, index}){
 
     return(
         <TripContainer>
-            <h3>omra {el.month}</h3>
-            <h3 style={{fontSize : "25px", fontWeight: "normal"}}>depart de {el.from}</h3>
-            <div style={{textAlign :"center"}}>
+            <h3>Omra {el.month}</h3>
+            <h3 style={{fontSize : "25px", fontWeight: "normal"}}>Depart de {el.from}</h3>
+            <div style={{textAlign :"center", padding : "20px 0"}}>
                 {
                     [""].map(()=>starsMaker(el.package_type))
                 }
             </div>
             <img alt="trip-image" src={el.image}/>
-            <h3 style={{fontSize : "35px", fontWeight: "normal"}}>{el.start_from_price} $</h3>
+            <h3 style={{fontSize : "35px", fontWeight: "normal"}}>{el.start_from_price}</h3>
             <div className='more'>
                 <Link to="/TripDetails" state={{ trip: el, tripIndex: index}}>
-                    <button>details</button>
+                    <button>Details</button>
                 </Link>
             </div>
         </TripContainer>

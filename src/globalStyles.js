@@ -16,7 +16,6 @@ const GlobalStyles = createGlobalStyle`
         monospace;
     }
     *{
-        text-transform: capitalize;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;

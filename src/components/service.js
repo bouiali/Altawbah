@@ -19,7 +19,6 @@ const ServiceContainer = styled.div`
         }
     }
     h3{
-        text-transform: capitalize;
         padding: 10px;
         margin: 0;
         font-size: 25px;
@@ -72,7 +71,7 @@ function Service({el}){
                 </div>
                 <h3>{el.name}</h3>
                 <div className='details_button'>
-                    <button>details</button>
+                    <button>Details</button>
                 </div>
             </div>
 

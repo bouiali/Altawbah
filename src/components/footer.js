@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const FooterSection = styled.footer`
@@ -65,15 +66,17 @@ const FooterSection = styled.footer`
 function Footer(){
     return (
         <FooterSection>
-            <img src='images/logo.png' alt='logo'></img>
-            <h3>nos reseaux</h3>
+            <Link to={"/"}>
+                <img src='images/logo.png' alt='logo'></img>
+            </Link>
+            <h3>Nos reseaux</h3>
             <div className='social'>
                 <i class='fa-brands fa-square-facebook' onClick={()=> window.open("https://www.facebook.com/profile.php?id=61578053849145","_blank")}></i>
                 <i class='fa-brands fa-snapchat' onClick={()=> window.open("https://www.snapchat.com/add/altawbahvoyages?share_id=whY_CWdrYYY&locale=ar-EG","_blank")}/>
                 <i class='fa-brands fa-instagram' onClick={()=> window.open("https://www.instagram.com/altawbah.voyages","_blank")}/>
                 <i class='fa-brands fa-whatsapp' onClick={()=> window.open("https://wa.me/qr/MKFYCEY5UQOHK1","_blank")}/>
             </div>
-            <p>@2025 <span>altawbah</span> All right reserved</p>
+            <p>@2025 <span>Altawbah</span> All right reserved</p>
         </FooterSection>
     );
 }

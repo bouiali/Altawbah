@@ -58,52 +58,60 @@ const Landing = styled.section`
         right: 20px;
     }
     .text{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -25%);
         text-align: center;
         width: 100%;
         z-index: 2;
         h2{
-            color: white;
-            font-size: 40px;
             letter-spacing: -3px;
-            padding: 10px 0;
-            span{
-                color: green;
-                font-size: 50px;
-            }
+            color: green;
+            font-size: 65px;
         }
         p{
             color: white;
-            font-size: larger;
+            font-size: 25px;
             font-weight: 500;
             line-height: 2;
-            padding: 10px 0;
         }
         button{
+            margin-top: 95px;
             background-color: green;
             color: white;
-            margin: 10px 0 0 0;
         }
     }
     @media(max-width: 650px){
         .text h2{
-            font-size: 30px;
-            span{
-                font-size: 40px;
-            }
+            font-size: 50px;
         }
     }
     @media(max-width: 430px){
         .text p{
-            font-size: medium;
+            font-size: 20px;
         }
     }
     @media(max-width: 365px){
         .text p{
             font-size: small;
+        }
+    }
+    .text {
+        animation: landing-text-animation 1 2s linear;
+    }
+    @keyframes landing-text-animation {
+        from {
+            gap: 300px;
+            opacity: 0;
+        }
+        to {
+            gap: 20px;
+            opacity: 1;
         }
     }
 `;
@@ -256,7 +264,6 @@ const ContactUs = styled.section`
                 margin: 20px 0;
                 padding: 0 20px;
                 font-size: medium;
-                text-transform: capitalize;
                 background-color: #eee;
                 border-bottom: 2px solid #777;
                 forced-color-adjust: none;
@@ -276,7 +283,6 @@ const ContactUs = styled.section`
                 color: green;
                 font-size: larger;
                 font-weight: bold;
-                text-transform: capitalize;
                 transition: 500ms;
             }
             button:hover{
@@ -293,7 +299,6 @@ const ContactUs = styled.section`
                 padding: 10px 0;
             }
             h3{
-                text-transform: uppercase;
                 font-weight: normal;
             }
             p{
@@ -340,6 +345,8 @@ function Home(){
             const el = document.getElementById(location.hash.replace('#',''));
             if(el)
                 el.scrollIntoView({behavior:"smooth"});
+        }else{
+            document.querySelector("header").scrollIntoView();
         }
     },[location]);
 
@@ -352,10 +359,10 @@ function Home(){
                     <img alt="landing-background" className='home_background' src={paths[imageIndex]}/>
                 </div>
                 <div className='text'>
-                    <h2><span>altawbah voyages</span></h2>
-                    <p>votre chemin vers la maison sacree</p>
+                    <h2>Altawbah voyages</h2>
+                    <p>Votre chemin vers la maison sacree</p>
                     <Link to={"/#trips"}>
-                        <button>nos packages</button>
+                        <button>Nos packages</button>
                     </Link>
                 </div>
                 <i class="fa-solid fa-chevron-left" 
@@ -408,15 +415,15 @@ function Home(){
                 <div className='trips_container'>
                     {
                         tripsData != null ? (
-                            tripsData.map((el, index)=>{
+                            tripsData.map((el)=>{
                                 return(
-                                    <Trip el = {el} tripIndex = {index}/>
+                                    <Trip el = {el}/>
                                 );
                             })
                         ):null
                     }
                 </div>
-                <button onClick={()=>{ window.open("#contact","_self") }}>contactez nous</button>
+                <button onClick={()=>{ window.open("#contact","_self") }}>Contactez nous</button>
             </Trips>
 
             {/* services */}
@@ -444,10 +451,10 @@ function Home(){
                 <div class="container">
                     <form action="">
                         <i class="far fa-envelope fa-lg"></i>
-                        <input type="email" placeholder="votre email"/>
-                        <input type="submit" value="s'aboner"/>
+                        <input type="email" placeholder="Votre email"/>
+                        <input type="submit" value="S'aboner"/>
                     </form>
-                    <p>abonnez-vous à notre newsletter pour recevoir les derniers packages et promotions.</p>
+                    <p>Abonnez-vous pour recevoir les derniers packages et promotions.</p>
                 </div>
             </Subscribe>        
 
@@ -455,18 +462,18 @@ function Home(){
 
             <ContactUs id='contact'>
                 <SectionHeading>
-                    <h2>contactez nous</h2>
+                    <h2>contactez-nous</h2>
                 </SectionHeading>
                 <div className='contact'>
                     <form>
-                        <input type='text' placeholder='nom'></input>
-                        <input type='email' placeholder='email'></input>
-                        <textarea placeholder='demande'></textarea>
-                        <button>Send</button>
+                        <input type='text' placeholder='Nom'></input>
+                        <input type='email' placeholder='Email'></input>
+                        <textarea placeholder='Demande'></textarea>
+                        <button>Envoyer</button>
                     </form>
                     <div className='contact_info'>
                         <div>
-                            <h3>entrer en contact</h3>
+                            <h3>Entrer en contact</h3>
                             <p>
                                 <i class="fa-solid fa-phone" />
                                 +966 56 672 1559
@@ -488,7 +495,7 @@ function Home(){
                         </div>
                         */}
                         <div>
-                            <h3>nos heures de travails</h3>
+                            <h3>Nos heures de travails</h3>
                             <p>
                                 <i class="fa-regular fa-clock" />
                                 24/7

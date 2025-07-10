@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import trips from '../data/trips.json';
+
 
 const HeaderContainer = styled.header`
     position: absolute;
@@ -21,7 +23,7 @@ const HeaderContainer = styled.header`
         padding: 0;
         margin: 0;
     }
-    li{
+    li, .select{
         color: white;
         font-weight: 500;
         font-size: large;
@@ -46,7 +48,7 @@ const HeaderContainer = styled.header`
             height: 2px;
             width: 100%;
             left: 0;
-            bottom: -37px;
+            bottom: -39px;
             background-color: white;
         }
         li:hover{
@@ -54,6 +56,37 @@ const HeaderContainer = styled.header`
         }
         li:hover::before{
             background-color: green;
+        }
+    }
+    .select{
+        position: relative;
+        >div{
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+            position: absolute;
+            width: max-content;
+            top: 100%;
+            left: 0;
+            padding: 20px 10px;
+            z-index: 3;
+            background-color: rgb(0 0 0 / 70%);
+            border-bottom: 3px solid green;
+            a{
+                color: white;
+                font-weight: 500;
+                font-size: large;
+                cursor: pointer;
+                &:hover{
+                    color: green;
+                }
+            }
+        }
+        &:hover{
+            color: green;
+            >div{
+                display: flex;
+            }
         }
     }
     .stack{
@@ -78,8 +111,9 @@ const HeaderContainer = styled.header`
             z-index: 3;
             background-color: rgb(0 0 0 / 70%);
             border-bottom: 3px solid green;
-            li{
+            li, .select{
                 padding-left: 20px;
+                width: fit-content;
                 &::before{
                     width: 0;
                 }
@@ -107,17 +141,35 @@ const HeaderContainer = styled.header`
 `;
 
 function Header(){
+
+    let tripsData = trips.trips;
+
     return(
         <HeaderContainer>
-            <img src="images/navbarLogo.png" alt="logo"></img>
+             <Link to={"/"}>
+                <img src="images/navbarLogo.png" alt="logo"></img>
+            </Link>
             <nav>
                 <ul className="sections">
                     <Link to={"/"}>
-                        <li className='active'>acceuil</li>
+                        <li className='active'>Acceuil</li>
                     </Link>
-                    <Link to={"/#trips"}>
-                        <li>Packages</li>
-                    </Link>
+                    <div className="select">
+                        Omra
+                        <div>
+                            {
+                                tripsData != null ? (
+                                    tripsData.map((el, index)=>{
+                                        return(
+                                            <Link to={"/tripDetails"} state={{trip : el, tripIndex : index}}>
+                                                Depart de {el.from}, {el.month}
+                                            </Link>
+                                        );
+                                    })
+                                ):null
+                            }
+                        </div>
+                    </div>
                     <Link to={"/#services"}>                        
                         <li>Services</li>
                     </Link>

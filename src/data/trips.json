@@ -1,11 +1,11 @@
 {"trips":[
     {
-        "month":"september",
-        "from":"paris",
-        "image":"images/logo.png",
+        "month":"septembre",
+        "from":"lyon",
+        "image":"images/package-background.jpg",
         "package_type":"5",
         "date":"2025/09/16",
-        "start_from_price":"1546",
+        "start_from_price":"1199€",
         "makkah_hotel":{
             "name":"shaza",
             "stars":"5",
@@ -88,19 +88,18 @@
             "depart":"2025/09/20"
         },
         "price":{
-            "single":"1999",
-            "double":"1850",
-            "triple":"1700",
-            "quadre":"1546"
+            "double":"1599€",
+            "triple":"1399€",
+            "quade":"1199€"
         }
     },
      {
-        "month":"september",
-        "from":"paris",
-        "image":"images/logo.png",
+        "month":"decembre",
+        "from":"lyon",
+        "image":"images/package-background.jpg",
         "package_type":"5",
         "date":"2025/09/16",
-        "start_from_price":"1546",
+        "start_from_price":"BIENTÔT",
         "makkah_hotel":{
             "name":"shaza",
             "stars":"5",
@@ -183,10 +182,9 @@
             "depart":"2025/09/20"
         },
         "price":{
-            "single":"1999",
-            "double":"1850",
-            "triple":"1700",
-            "quadre":"1546"
+            "double":"1599€",
+            "triple":"1399€",
+            "quade":"1299€"
         }
     }
 ]}
