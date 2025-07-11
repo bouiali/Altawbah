@@ -10,7 +10,7 @@ const TripDetailsContainer = styled.div`
     .land{
         width: 100%;
         height: 35vh; 
-        background-color: rgb(0 5 0 / 70%);
+        background-color: rgb(0 5 0 / 80%);
     }
     a{
         cursor: pointer;

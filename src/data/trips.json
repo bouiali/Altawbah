@@ -7,21 +7,20 @@
         "date":"2025/09/16",
         "start_from_price":"1199€",
         "makkah_hotel":{
-            "name":"shaza",
+            "name":"marriott",
             "stars":"5",
             "distance":"300m",
             "meals":"breakfast",
             "nights":"5",
-            "location":"https://maps.app.goo.gl/Esfipfrh1Nkxx1qAA",
+            "location":"https://maps.app.goo.gl/fCkhYwPD4zLJaNDY7",
             "images_paths":[
-                "images/shaza0.jpg",
-                "images/shaza1.jpg",
-                "images/shaza2.jpg",
-                "images/shaza3.jpg",
-                "images/shaza4.jpg",
-                "images/shaza5.jpg",
-                "images/shaza6.jpg",
-                "images/shaza7.jpg"
+                "images/marriott0.jpg",
+                "images/marriott1.jpg",
+                "images/marriott2.jpg",
+                "images/marriott3.jpg",
+                "images/marriott4.jpg",
+                "images/marriott5.jpg",
+                "images/marriott6.jpg"
             ]
         },
         "madinah_hotel":{

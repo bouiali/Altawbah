@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const PriceContainer = styled.div`
@@ -34,7 +35,9 @@ function Price({chamber, bad, price}){
                 </p>
                 <p>{price}</p>
             </div>
-            <button>Réserver</button>
+            <Link to="/Reservation" state={{type: bad, price: price}} style={{border: "none"}}>
+                <button>Réserver </button>
+            </Link>
         </PriceContainer>
     );
 }

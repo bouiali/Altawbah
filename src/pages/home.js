@@ -469,7 +469,7 @@ function Home(){
                         <input type='text' placeholder='Nom'></input>
                         <input type='email' placeholder='Email'></input>
                         <textarea placeholder='Demande'></textarea>
-                        <button>Envoyer</button>
+                        <button type='submit'>Envoyer</button>
                     </form>
                     <div className='contact_info'>
                         <div>
