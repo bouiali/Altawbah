@@ -48,7 +48,7 @@ const TripDetailsContainer = styled.div`
             align-items: center;
             gap: 20px;
             text-align: center;
-            padding: 0 0 20px 0;
+            padding: 0 0 50px 0;
             button{
                 color: white;
                 background-color: green;
@@ -160,7 +160,7 @@ const TripDetailsContainer = styled.div`
                 width: 100%;
             }
         }
-        .hotel-details: nth-child(2){
+        .hotel-details: nth-child(1){
             flex-direction: column-reverse;
         }
     }
@@ -255,7 +255,7 @@ function TripDetails(){
                             starsMaker(trip.package_type)
                         }
                     </h1>
-                    <button onClick={()=>document.getElementById("pricing").scrollIntoView()}>Réserve</button>
+                    <button onClick={()=>document.getElementById("pricing").scrollIntoView()}>Réserver</button>
                 </div>
                 <h3>
                     <i class="fa-solid fa-link"></i>
@@ -315,7 +315,7 @@ function TripDetails(){
                                     <p>
                                         taux : 
                                         {
-                                            [""].map(()=>starsMaker(trip.makkah_hotel.stars))
+                                           starsMaker(trip.makkah_hotel.stars)
                                         }
                                     </p>
                                 </div>
@@ -352,7 +352,7 @@ function TripDetails(){
                                     <p>
                                         taux : 
                                         {
-                                            [""].map(()=>starsMaker(trip.madinah_hotel.stars))
+                                            starsMaker(trip.madinah_hotel.stars)
                                         }
                                     </p>
                                 </div>
@@ -383,7 +383,11 @@ function TripDetails(){
                         <div className="details">
                             <div>
                                 <i class="fa-solid fa-check"></i>
-                                <p>visa.</p>
+                                <p>visa.
+                                    <span style={{color: "red", fontSize: "smaller"}}>
+                                        (Des frais supplémentaires de 100 euros sont appliqués aux personnes titulaires de passeports non européens.)
+                                    </span>
+                                </p>
                             </div>
                             <div>
                                 <i class="fa-solid fa-check"></i>

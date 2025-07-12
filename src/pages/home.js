@@ -7,7 +7,7 @@ import trips from '../data/trips.json';
 import Package from '../components/package';
 import Service from '../components/service';
 import Trip from '../components/trip';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 
 
 const Landing = styled.section`
@@ -338,8 +338,12 @@ function Home(){
     //services
     let servicesData = services.services;
 
+    //contact us
+     let navigate = useNavigate();
+
     //hashing
     const location = useLocation();
+
     useEffect(()=>{
         if(location.hash){
             const el = document.getElementById(location.hash.replace('#',''));
@@ -423,7 +427,7 @@ function Home(){
                         ):null
                     }
                 </div>
-                <button onClick={()=>{ window.open("#contact","_self") }}>Contactez nous</button>
+                <button onClick={()=>{navigate("/#contact")}}>Contactez nous</button>
             </Trips>
 
             {/* services */}
@@ -449,7 +453,7 @@ function Home(){
 
             <Subscribe>
                 <div class="container">
-                    <form action="">
+                    <form>
                         <i class="far fa-envelope fa-lg"></i>
                         <input type="email" placeholder="Votre email"/>
                         <input type="submit" value="S'aboner"/>
@@ -465,10 +469,29 @@ function Home(){
                     <h2>contactez-nous</h2>
                 </SectionHeading>
                 <div className='contact'>
-                    <form>
-                        <input type='text' placeholder='Nom'></input>
-                        <input type='email' placeholder='Email'></input>
-                        <textarea placeholder='Demande'></textarea>
+                    <form onSubmit={
+                        async (e)=>{
+                            e.preventDefault();
+
+                            const formData = new FormData();
+                            formData.append("Message.Name", document.getElementById("Name").value);
+                            formData.append("Message.Email", document.getElementById("Email").value);
+                            formData.append("Message.Message", document.getElementById("Message").value);
+                
+                            await fetch("http://localhost:5200/contact", {
+                                method: "POST",
+                                body: formData
+                            }).then(response => response.text())
+                                .then(text =>{
+                                    alert(text);
+                                    window.open("/");
+                                })
+                                .catch(error => alert('حدث خطأ: ' + error));     
+                        }
+                    }>
+                        <input type='text' id="Name" name="Message.Name" placeholder='Nom'></input> 
+                        <input type='email' id='Email' name="Message.Email" placeholder='Email'></input>
+                        <textarea id='Message' name="Message.Message" placeholder='Demande'></textarea>
                         <button type='submit'>Envoyer</button>
                     </form>
                     <div className='contact_info'>
@@ -509,3 +532,4 @@ function Home(){
 }
 
 export default Home;
+

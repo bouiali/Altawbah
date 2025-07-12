@@ -95,11 +95,15 @@ function Trip({el, index}){
             </div>
             <img alt="trip-image" src={el.image}/>
             <h3 style={{fontSize : "35px", fontWeight: "normal"}}>{el.start_from_price}</h3>
-            <div className='more'>
-                <Link to="/TripDetails" state={{ trip: el, tripIndex: index}}>
-                    <button>Details</button>
-                </Link>
-            </div>
+            {
+                el.start_from_price != "BIENTÔT" ?(
+                    <div className='more'>
+                        <Link to="/TripDetails" state={{ trip: el, tripIndex: index}}>
+                            <button>Details</button>
+                        </Link>
+                    </div>
+                ) : null
+            }
         </TripContainer>
     );
 }

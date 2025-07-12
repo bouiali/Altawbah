@@ -9,6 +9,7 @@ const PriceContainer = styled.div`
     div{
         display: flex;
         justify-content: space-between;
+        align-items: baseline;
         padding: 10px 0;
         p{
             font-size: 30px;
@@ -16,12 +17,22 @@ const PriceContainer = styled.div`
         }
         p:last-child{
             color: black;
+            line-height: 0.5;
+            text-align: end;
+            span{
+                font-size: 10px;
+            }
         }
     }
     button{
         color: green;
         width: 100%;
-        background-color: transparent
+        background-color: transparent;
+        transition: 500ms;
+        &:hover{
+            color: white;
+            background-color: green;
+        }
     }
 `;
 
@@ -33,7 +44,11 @@ function Price({chamber, bad, price}){
                 <p>
                     <i class="fa-solid fa-bed" />X{bad}    
                 </p>
-                <p>{price}</p>
+                <p>
+                    {price} 
+                    <br/>
+                    <span>PRIX PAR PERSONNE</span>
+                </p>
             </div>
             <Link to="/Reservation" state={{type: bad, price: price}} style={{border: "none"}}>
                 <button>Réserver </button>

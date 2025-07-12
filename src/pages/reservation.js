@@ -1,9 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { SectionHeading } from "../globalStyles";
 import { useEffect } from "react";
-
-const { default: styled } = require("styled-components");
-
+import styled from "styled-components";
 
 const ReservationContainer = styled.div`
     .land{
@@ -83,10 +81,7 @@ function Reservation(){
                             <input type="email" id="email" placeholder="Email" required></input>
                         </div>
                         <div>
-                            <div>
-                                <label htmlFor="ID">Carte d'identité : </label>
-                                <input type="file" id="ID" accept=".png, image/*" required></input>
-                            </div>
+                            <input type="text" id="passNum" placeholder="Numero de passeport" required></input>
                             <div>
                                 <label htmlFor="passeport">Passeport : </label>
                                 <input type="file" id="passeport" accept=".pdf, image/*" required></input>

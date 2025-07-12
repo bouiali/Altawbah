@@ -98,7 +98,7 @@ const HeaderContainer = styled.header`
             background-color: white;
         }
     }
-    @media (max-width: 850px){
+    @media (max-width: 1000px){
         .sections{
             display: none;
             flex-direction: column;
@@ -133,7 +133,7 @@ const HeaderContainer = styled.header`
             }
         }
     }
-    @media (min-width: 850px){
+    @media (min-width: 1001px){
         .sections{
             display: flex !important;
         }
@@ -156,15 +156,18 @@ function Header(){
                     </Link>
                     <div className="select">
                         Omra
+                        <i class="fa-solid fa-chevron-down" style={{marginLeft: "5px", fontSize: "10px"}}></i>
                         <div>
                             {
                                 tripsData != null ? (
                                     tripsData.map((el, index)=>{
-                                        return(
-                                            <Link to={"/tripDetails"} state={{trip : el, tripIndex : index}}>
-                                                Depart de {el.from}, {el.month}
-                                            </Link>
-                                        );
+                                        if(el.start_from_price != "BIENTÔT"){
+                                            return(
+                                                <Link to={"/tripDetails"} state={{trip : el, tripIndex : index}}>
+                                                    Depart de {el.from}, {el.month}
+                                                </Link>
+                                            );
+                                        }
                                     })
                                 ):null
                             }
@@ -175,6 +178,9 @@ function Header(){
                     </Link>
                     <Link to={"/#contact"}>
                         <li>Contactez nous</li>
+                    </Link>
+                    <Link to={"/AboutUs"}>
+                        <li>qui sommes-nous ?</li>
                     </Link>
                 </ul>
                 <ul className='stack' onClick={()=>{

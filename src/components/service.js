@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import styled from "styled-components";
 
 const ServiceContainer = styled.div`
@@ -10,6 +11,7 @@ const ServiceContainer = styled.div`
     width: 300px;
     transition: 500ms;
     text-align: center;
+    height: fit-content;
     .icon_con{
         display: flex;
         justify-content: center;
@@ -27,19 +29,24 @@ const ServiceContainer = styled.div`
     }
     .details{
         display: none;
+        p{
+            text-align: start;
+            line-height: 1.5;
+            padding: 0 0 0 5px;
+        }
+        span{
+            color: green;
+            line-height: 2.5;
+        }
     }
     .details_button{
         display: flex;
         justify-content: end;
         background-color: #cecece;
         padding: 15px;
-        button{
-            border: none;
-            background-color: #cecece;
+        p, i{
             color: green;
             font-size: large;
-            font-weight: normal;
-            padding: 0;
             cursor: pointer;
         }
     }
@@ -63,27 +70,33 @@ const ServiceContainer = styled.div`
 `;
 
 function Service({el}){
+
+    const front = useRef(null);
+    const details = useRef(null);
+
     return(
         <ServiceContainer>
-            <div className='front'>
+            <div className='front' ref={front}>
                 <div className='icon_con'>
                     <i class={el.icon} />
                 </div>
                 <h3>{el.name}</h3>
                 <div className='details_button'>
-                    <button>Details</button>
+                    <p onClick={()=>{
+                        front.current.style.display = "none";
+                        details.current.style.display = "block";
+                    }}>Details</p>
                 </div>
             </div>
-
-            {/* need fix */}
-
-            <div className='details'>
-                <i class={el.icon}/>
+            <div className='details' ref={details}>
                 <p>{el.description}</p>
-                <div className='price'>
-                    <p>start from<span>{el.price}</span></p>
+                <span>choisissez-le lors de la réservation</span>
+                <div className='details_button'>
+                    <i class="fa-solid fa-arrow-right" onClick={()=>{
+                        details.current.style.display = "none";
+                        front.current.style.display = "block";     
+                    }}></i>
                 </div>
-                <button>Buy</button>
             </div>
         </ServiceContainer>
     );

@@ -4,56 +4,54 @@
         "from":"lyon",
         "image":"images/package-background.jpg",
         "package_type":"5",
-        "date":"2025/09/16",
+        "date":"2025/09/08",
         "start_from_price":"1199€",
         "makkah_hotel":{
-            "name":"marriott",
+            "name":"sheraton",
             "stars":"5",
-            "distance":"300m",
+            "distance":"500m",
             "meals":"breakfast",
-            "nights":"5",
-            "location":"https://maps.app.goo.gl/fCkhYwPD4zLJaNDY7",
+            "nights":"4",
+            "location":"https://maps.app.goo.gl/zo61VAwQDqReuzKb8",
             "images_paths":[
-                "images/marriott0.jpg",
-                "images/marriott1.jpg",
-                "images/marriott2.jpg",
-                "images/marriott3.jpg",
-                "images/marriott4.jpg",
-                "images/marriott5.jpg",
-                "images/marriott6.jpg"
+                "images/sheraton0.jpg",
+                "images/sheraton1.jpg",
+                "images/sheraton2.jpg",
+                "images/sheraton3.jpg",
+                "images/sheraton4.jpg",
+                "images/sheraton5.jpg"
             ]
         },
         "madinah_hotel":{
-            "name":"rotana",
-            "stars":"4",
+            "name":"pullman zamzam",
+            "stars":"5",
             "distance":"200m",
             "meals":"breakfast",
-            "nights":"5",
-            "location":"https://maps.app.goo.gl/5o4A5ZW4GezFeGfj9",
+            "nights":"4",
+            "location":"https://maps.app.goo.gl/YAonZmDZbqaFw39f6",
             "images_paths":[
-                "images/rotana0.jpg",
-                "images/rotana1.jpg",
-                "images/rotana2.jpg",
-                "images/rotana3.jpg",
-                "images/rotana4.jpg",
-                "images/rotana5.jpg",
-                "images/rotana6.jpg",
-                "images/rotana7.jpg",
-                "images/rotana8.jpg"
+                "images/pullman0.jpg",
+                "images/pullman1.jpg",
+                "images/pullman2.jpg",
+                "images/pullman3.jpg",
+                "images/pullman4.jpg",
+                "images/pullman5.jpg",
+                "images/pullman6.jpg",
+                "images/pullman7.jpg"
             ]
         },
         "ticket_details":{
             "go_ticket":[
                 {
                     "airline":"saudi airline",
-                    "from":"paris",
-                    "to":"madinah",
+                    "from":"lyon",
+                    "to":"jeddah",
                     "depart":{
-                        "date":"2025/09/16",
+                        "date":"2025/09/8",
                         "time":"01:10"
                     },
                     "arrival":{
-                        "date":"2025/09/16",
+                        "date":"2025/09/8",
                         "time":"06:10"
                     },
                     "checked_baggage":"2 * 30kg",
@@ -63,8 +61,8 @@
             "return_ticket":[
                 {
                     "airline":"saudi airline",
-                    "from":"paris",
-                    "to":"madinah",
+                    "from":"jeddah",
+                    "to":"lyon",
                     "depart":{
                         "date":"2025/09/16",
                         "time":"01:10"
