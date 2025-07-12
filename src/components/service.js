@@ -90,7 +90,7 @@ function Service({el}){
             </div>
             <div className='details' ref={details}>
                 <p>{el.description}</p>
-                <span>choisissez-le lors de la réservation</span>
+                <span>{el.book}</span>
                 <div className='details_button'>
                     <i class="fa-solid fa-arrow-right" onClick={()=>{
                         details.current.style.display = "none";

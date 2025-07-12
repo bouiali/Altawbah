@@ -10,7 +10,7 @@
             "name":"sheraton",
             "stars":"5",
             "distance":"500m",
-            "meals":"breakfast",
+            "meals":"petit-déjeuner",
             "nights":"4",
             "location":"https://maps.app.goo.gl/zo61VAwQDqReuzKb8",
             "images_paths":[
@@ -25,8 +25,8 @@
         "madinah_hotel":{
             "name":"pullman zamzam",
             "stars":"5",
-            "distance":"200m",
-            "meals":"breakfast",
+            "distance":"en face",
+            "meals":"petit-déjeuner",
             "nights":"4",
             "location":"https://maps.app.goo.gl/YAonZmDZbqaFw39f6",
             "images_paths":[
@@ -43,35 +43,35 @@
         "ticket_details":{
             "go_ticket":[
                 {
-                    "airline":"saudi airline",
+                    "airline":"transavia",
                     "from":"lyon",
                     "to":"jeddah",
                     "depart":{
                         "date":"2025/09/8",
-                        "time":"01:10"
+                        "time":"17:25"
                     },
                     "arrival":{
-                        "date":"2025/09/8",
-                        "time":"06:10"
+                        "date":"2025/09/9",
+                        "time":"00:05"
                     },
-                    "checked_baggage":"2 * 30kg",
+                    "checked_baggage":"1 * 20kg",
                     "cabin_baggage":"1 * 7kg"
                 }
             ],
             "return_ticket":[
                 {
-                    "airline":"saudi airline",
+                    "airline":"transavia",
                     "from":"jeddah",
                     "to":"lyon",
                     "depart":{
                         "date":"2025/09/16",
-                        "time":"01:10"
+                        "time":"01:15"
                     },
                     "arrival":{
                         "date":"2025/09/16",
-                        "time":"06:10"
+                        "time":"06:25"
                     },
-                    "checked_baggage":"2 * 30kg",
+                    "checked_baggage":"1 * 20kg",
                     "cabin_baggage":"1 * 7kg"
                 }
             ]
@@ -85,9 +85,9 @@
             "depart":"2025/09/20"
         },
         "price":{
-            "double":"1599€",
-            "triple":"1399€",
-            "quade":"1199€"
+            "double":"1549€",
+            "triple":"1349€",
+            "quade":"1249€"
         }
     },
      {
@@ -142,11 +142,11 @@
                     "to":"madinah",
                     "depart":{
                         "date":"2025/09/16",
-                        "time":"01:10"
+                        "time":"17:25"
                     },
                     "arrival":{
                         "date":"2025/09/16",
-                        "time":"06:10"
+                        "time":"00:05"
                     },
                     "checked_baggage":"2 * 30kg",
                     "cabin_baggage":"1 * 7kg"
@@ -159,11 +159,11 @@
                     "to":"madinah",
                     "depart":{
                         "date":"2025/09/16",
-                        "time":"01:10"
+                        "time":"17:25"
                     },
                     "arrival":{
                         "date":"2025/09/16",
-                        "time":"06:10"
+                        "time":"00:05"
                     },
                     "checked_baggage":"2 * 30kg",
                     "cabin_baggage":"1 * 7kg"

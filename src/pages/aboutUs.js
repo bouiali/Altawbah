@@ -12,6 +12,11 @@ const AboutUsContainer = styled.div`
         background-color: white;
         p{
             line-height: 2;
+            font-weight: 900;
+        }
+        span{
+            color: green;
+            font-size: 30px;
         }
     }
 `;
@@ -30,7 +35,7 @@ function AboutUs(){
                     <h2>qui sommes-nous</h2>
                 </SectionHeading>
                 <p>
-                    Altawbah Voyage est une agence spécialisée dans l'organisation de voyages de Omra, fondée par un groupe d’étudiants en sciences islamiques vivant en Arabie Saoudite depuis plus de 10 ans. Forts de notre expérience sur place et de notre connaissance approfondie des rites religieux, nous avons à cœur d’accompagner nos frères et sœurs dans leur Omra avec sincérité, professionnalisme et bienveillance.
+                    <span>Altawbah Voyages</span> est une agence spécialisée dans l'organisation de voyages de Omra, fondée par un groupe d’étudiants en sciences islamiques vivant en Arabie Saoudite depuis plus de 10 ans. Forts de notre expérience sur place et de notre connaissance approfondie des rites religieux, nous avons à cœur d’accompagner nos frères et sœurs dans leur Omra avec sincérité, professionnalisme et bienveillance.
                     <br/>   
                     Nous mettons un point d’honneur à offrir un encadrement spirituel de qualité, fidèle à la Sunna et à la tradition prophétique, tout en assurant un service logistique optimal pour que chaque pèlerin puisse vivre pleinement ce moment unique, dans la sérénité et le recueillement.
                     <br/>

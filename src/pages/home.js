@@ -140,6 +140,16 @@ const Packages = styled.section`
     }
 `;
 
+const Reception = styled.section`
+    text-align: center;
+    background-color: #cecece;
+    h1{
+        font-size: 32px;
+        line-height: 2;
+        font-weight: 900;
+    }
+`;
+
 const Trips = styled.section`
     background-color: white;
     .trips_container{
@@ -410,6 +420,12 @@ function Home(){
             </Packages>
             */}
 
+            {/*reception*/}
+
+            <Reception>
+                <h1>Agence Omra et Hajj 2025 2026 <br/> Omra pas cher</h1>
+            </Reception>
+            
             {/* trip */}
 
             <Trips id='trips'>
@@ -453,9 +469,26 @@ function Home(){
 
             <Subscribe>
                 <div class="container">
-                    <form>
+                    <form onSubmit={
+                        async (e)=>{
+                            e.preventDefault();
+
+                            const formData = new FormData();
+                            formData.append("Email", document.getElementById("email").value);
+
+                            await fetch("http://localhost:5200/subscribe",{
+                                method:"POST",
+                                body: formData
+                            }).then(response => response.text())
+                              .then(text =>{
+                                alert(text);
+                                window.open("/","_self");
+                            })
+                            .catch(error => alert('حدث خطأ: ' + error)); 
+                        }
+                    }>
                         <i class="far fa-envelope fa-lg"></i>
-                        <input type="email" placeholder="Votre email"/>
+                        <input type="email" id="email" placeholder="Votre email"/>
                         <input type="submit" value="S'aboner"/>
                     </form>
                     <p>Abonnez-vous pour recevoir les derniers packages et promotions.</p>
@@ -484,7 +517,7 @@ function Home(){
                             }).then(response => response.text())
                                 .then(text =>{
                                     alert(text);
-                                    window.open("/");
+                                    window.open("/","_self");
                                 })
                                 .catch(error => alert('حدث خطأ: ' + error));     
                         }
@@ -503,7 +536,7 @@ function Home(){
                             </p>
                             <p>
                                 <i class="fa-solid fa-phone" />
-                                +966 54 701 8646
+                                +33 7 74 82 20 82
                             </p>
                         </div>
                         {/*

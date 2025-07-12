@@ -36,21 +36,21 @@ const PriceContainer = styled.div`
     }
 `;
 
-function Price({chamber, bad, price}){
+function Price({type, chamber, bed, price}){
     return(
         <PriceContainer>
             <h4>Chambre {chamber}</h4>
             <div>
                 <p>
-                    <i class="fa-solid fa-bed" />X{bad}    
+                    <i class="fa-solid fa-bed" />X{bed}    
                 </p>
                 <p>
                     {price} 
                     <br/>
-                    <span>PRIX PAR PERSONNE</span>
+                    <span>PAR PERSONNE</span>
                 </p>
             </div>
-            <Link to="/Reservation" state={{type: bad, price: price}} style={{border: "none"}}>
+            <Link to="/Reservation" state={{type: type, bed: bed, price: price}} style={{border: "none"}}>
                 <button>Réserver </button>
             </Link>
         </PriceContainer>

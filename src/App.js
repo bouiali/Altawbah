@@ -33,7 +33,7 @@ function App() {
     <>
       <Header/>
       <FixedBackground alt="fixed-backgroun" src='images/footer3.webp'></FixedBackground>
-      <FixedIcon className="fa-brands fa-whatsapp" onClick={()=>window.open("https://wa.me/qr/MKFYCEY5UQOHK1","_blank")}></FixedIcon>
+      <FixedIcon className="fa-brands fa-whatsapp" onClick={()=>window.open("https://wa.me/+33774822082","_blank")}></FixedIcon>
       <Routes>
         <Route path='/' element={<Home></Home>} ></Route>
         <Route path='/AboutUs' element={<AboutUs></AboutUs>}></Route>

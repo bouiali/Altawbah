@@ -267,7 +267,7 @@ function TripDetails(){
                     </li>
                     <ul>
                         <li onClick={()=>goTo("makkah-hotel")}>
-                            <a>Hôtel de La Mecque</a>
+                            <a>Hôtel de Makkah</a>
                         </li>
                         <li onClick={()=>goTo("madinah-hotel")}>
                             <a>Hôtel de Médine</a>
@@ -289,12 +289,9 @@ function TripDetails(){
                         <li onClick={()=>goTo("flight-information")}>
                             <a>informations de vol</a>
                         </li>
-                        <li onClick={()=>goTo("trip-program")}>
-                           <a>programme de voyage</a>
-                        </li>
                     </ul>
                     <li onClick={()=>{goTo("pricing")}}>
-                        <a>prix</a>
+                        <a>tarifs</a>
                     </li>
                 </ul>
             </section>
@@ -307,13 +304,13 @@ function TripDetails(){
                         <div>
                             <h3>
                                 <i class="fa-solid fa-hotel"></i>
-                                La Mecque : {trip.makkah_hotel.name}.
+                                makkah : {trip.makkah_hotel.name}.
                             </h3>
                             <div className="details">
                                 <div>
                                     <i class="fa-solid fa-star"></i>
                                     <p>
-                                        taux : 
+                                        étoiles : 
                                         {
                                            starsMaker(trip.makkah_hotel.stars)
                                         }
@@ -399,11 +396,11 @@ function TripDetails(){
                             </div>
                             <div>
                                 <i class="fa-solid fa-check"></i>
-                                <p>bus modernes pour le transport : depuis et vers l'aéroport, Médine et Makkah Mazarat et entre La Mecque et Médine.</p>
+                                <p>bus modernes pour le transport : depuis et vers l'aéroport, Médine et Makkah Mazarat et entre Makkah et Médine.</p>
                             </div>
                             <div>
                                 <i class="fa-solid fa-check"></i>
-                                <p>guide pour : départ, mazarat, oumra et retour. </p>
+                                <p>guide tout au long du voyage . </p>
                                 
                             </div>
                             <div>
@@ -412,7 +409,7 @@ function TripDetails(){
                             </div>
                             <div>
                                 <i class="fa-solid fa-check"></i>
-                                <p>madinah mazarat : quba, qiblatain, ouhoud et jardin.</p>
+                                <p>madinah mazarat : quba, qiblatain, ouhoud et palmeraie.</p>
                             </div>
                         </div>
                     </div>
@@ -424,7 +421,7 @@ function TripDetails(){
                         <div className="details">
                             <div>
                                 <i class="fa-solid fa-train-subway"></i>
-                                <p>Réservation de train : pour voyager entre Médine et La Mecque, cela prend 2h au lieu de 4h en voiture, transport compris entre l'hôtel et la gare, 90€ pour l'économique ou 130€ pour les affaires.</p>
+                                <p>Réservation de train : pour voyager entre Médine et Makkah, cela prend 2h au lieu de 4h en voiture, transport compris entre l'hôtel et la gare, 90€ pour l'économique ou 130€ pour les affaires.</p>
                             </div>
                             <div>
                                 <i class="fa-solid fa-wheelchair"></i>
@@ -484,9 +481,9 @@ function TripDetails(){
                     <h2>tarifs</h2>
                 </SectionHeading>
                 <div>
-                    <Price chamber="quade" bad="4" price={trip.price.quade}></Price>
-                    <Price chamber="triple" bad="3" price={trip.price.triple}></Price>
-                    <Price chamber="double" bad="2" price={trip.price.double}></Price>
+                    <Price type={`${trip.from}, ${trip.date}`} chamber="quade" bed="4" price={trip.price.quade}></Price>
+                    <Price type={`${trip.from}, ${trip.date}`} chamber="triple" bed="3" price={trip.price.triple}></Price>
+                    <Price type={`${trip.from}, ${trip.date}`} chamber="double" bed="2" price={trip.price.double}></Price>
                 </div>
             </section>
         </TripDetailsContainer>

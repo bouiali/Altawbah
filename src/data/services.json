@@ -3,12 +3,20 @@
         {
             "name":"reservation de TGV",
             "icon":"fa-solid fa-train-subway",
-            "description":"Transfert en TGV entre Médine et Makkah : 90 € (Eco) – 130 € (Business) – Trajet de 2h15 au lieu de 6 heures en car, comprenant les billets de TGV, les transferts hôtel-gare / gare-hôtel."
+            "description":"Transfert en TGV entre Médine et Makkah : 90 € (Eco) – 130 € (Business) – Trajet de 2h15 au lieu de 6 heures en car, comprenant les billets de TGV, les transferts hôtel-gare / gare-hôtel.",
+            "book":"choisissez-le lors de la réservation"
         },
         {
             "name":"pousseur",
             "icon":"fa-solid fa-wheelchair",
-            "description":"pousseur : possibiliter de reserver un pousseur pour les persones en necessiter afin d'accomplire la omra prix de prestation 100€."
+            "description":"pousseur : possibiliter de reserver un pousseur pour les persones en necessiter afin d'accomplire la omra prix de prestation 100€.",
+            "book":"choisissez-le lors de la reservation"
+        },
+        {
+            "name":"Omra badal",
+            "icon":"fa-solid fa-kaaba",
+            "description":"Omra par procurationOmra réalisée au nom d’un défunt ou d’une personne dans l’incapacité.Service conforme aux rites, accompli avec sérieux et piété.",
+            "book":"Contactez-nous pour demander le service"
         }
     ]
 }

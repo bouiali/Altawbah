@@ -47,7 +47,7 @@
                 "ticket_details":{
                     "go_ticket":[
                         {
-                            "airline":"saudi airline",
+                            "airline":"transavia",
                             "from":"paris",
                             "to":"madinah",
                             "depart":{
@@ -58,11 +58,11 @@
                                 "date":"2025/09/16",
                                 "time":"06:10"
                             },
-                            "checked_baggage":"2 * 30kg",
+                            "checked_baggage":"1 * 20kg",
                             "cabin_baggage":"1 * 7kg"
                         },
                         {
-                            "airline":"saudi airline",
+                            "airline":"transavia",
                             "from":"paris",
                             "to":"madinah",
                             "depart":{
@@ -73,7 +73,7 @@
                                 "date":"2025/09/16",
                                 "time":"06:10"
                             },
-                            "checked_baggage":"2 * 30kg",
+                            "checked_baggage":"1 * 20kg",
                             "cabin_baggage":"1 * 7kg"
                         }
                     ],"return_ticket":[
@@ -110,12 +110,12 @@
                 }
             },
             {
-                "from":"paris",
+                "from":"lyon",
                 "date":"2025/09/16",
                 "ticket_details":{
                     "go_ticket":[
                         {
-                            "airline":"saudi airline",
+                            "airline":"transavia",
                             "from":"paris",
                             "to":"madinah",
                             "depart":{
@@ -126,12 +126,12 @@
                                 "date":"2025/09/16",
                                 "time":"06:10"
                             },
-                            "checked_baggage":"2 * 30kg",
+                            "checked_baggage":"2 * 20kg",
                             "cabin_baggage":"1 * 7kg"
                         }
                     ],"return_ticket":[
                         {
-                            "airline":"saudi airline",
+                            "airline":"transavia",
                             "from":"paris",
                             "to":"madinah",
                             "depart":{
@@ -142,7 +142,7 @@
                                 "date":"2025/09/16",
                                 "time":"06:10"
                             },
-                            "checked_baggage":"2 * 30kg",
+                            "checked_baggage":"2 * 20kg",
                             "cabin_baggage":"1 * 7kg"
                         }
                     ]
@@ -168,7 +168,7 @@
                 "ticket_details":{
                     "go_ticket":[
                         {
-                            "airline":"saudi airline",
+                            "airline":"transavia",
                             "from":"paris",
                             "to":"madinah",
                             "depart":{
@@ -184,7 +184,7 @@
                         }
                     ],"return_ticket":[
                         {
-                            "airline":"saudi airline",
+                            "airline":"transavia",
                             "from":"paris",
                             "to":"madinah",
                             "depart":{
