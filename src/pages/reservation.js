@@ -59,6 +59,18 @@ function Reservation(){
 
     useEffect(()=>{
         document.querySelector("section").scrollIntoView();
+        let chamberType = document.getElementById("chamberType");
+        switch(bed){
+            case "4":
+                chamberType.value = "Q";
+                break;
+            case "3":
+                chamberType.value = "T";
+                break;
+            case "2":
+                chamberType.value = "D";
+                break;
+        }
     },[])
 
     return(
