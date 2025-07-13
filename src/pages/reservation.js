@@ -102,7 +102,7 @@ function Reservation(){
                             formData.append("reservation.TrainBooking", document.getElementById("TGV").checked.toString());
                             formData.append("reservation.Notes", document.getElementById("notes").value);
 
-                            await fetch("http://localhost:5200/reserve", {
+                            await fetch("https://altawbahapi.onrender.com/reserve", {
                                 method: "POST", 
                                 body: formData
                             }).then(response => response.text())

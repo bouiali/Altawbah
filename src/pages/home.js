@@ -476,7 +476,7 @@ function Home(){
                             const formData = new FormData();
                             formData.append("Email", document.getElementById("email").value);
 
-                            await fetch("http://localhost:5200/subscribe",{
+                            await fetch("https://altawbahapi.onrender.com/subscribe",{
                                 method:"POST",
                                 body: formData
                             }).then(response => response.text())
@@ -511,7 +511,7 @@ function Home(){
                             formData.append("Message.Email", document.getElementById("Email").value);
                             formData.append("Message.Message", document.getElementById("Message").value);
                 
-                            await fetch("http://localhost:5200/contact", {
+                            await fetch("https://altawbahapi.onrender.com/contact", {
                                 method: "POST",
                                 body: formData
                             }).then(response => response.text())
