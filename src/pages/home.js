@@ -471,6 +471,9 @@ function Home(){
                 <div class="container">
                     <form onSubmit={
                         async (e)=>{
+                            
+                            document.querySelector(".loadingBackground").style.display = "flex";
+
                             e.preventDefault();
 
                             const formData = new FormData();
@@ -481,10 +484,13 @@ function Home(){
                                 body: formData
                             }).then(response => response.text())
                               .then(text =>{
-                                alert(text);
+                                alert("merci de vous etre abonne");
                                 window.open("/","_self");
                             })
                             .catch(error => alert('حدث خطأ: ' + error)); 
+
+                            document.querySelector(".loadingBackground").style.display = "none";
+
                         }
                     }>
                         <i class="far fa-envelope fa-lg"></i>
@@ -504,6 +510,9 @@ function Home(){
                 <div className='contact'>
                     <form onSubmit={
                         async (e)=>{
+
+                            document.querySelector(".loadingBackground").style.display = "flex";
+
                             e.preventDefault();
 
                             const formData = new FormData();
@@ -516,10 +525,13 @@ function Home(){
                                 body: formData
                             }).then(response => response.text())
                                 .then(text =>{
-                                    alert(text);
+                                    alert("nous avons bien recu votre demande");
                                     window.open("/","_self");
                                 })
                                 .catch(error => alert('حدث خطأ: ' + error));     
+
+                                document.querySelector(".loadingBackground").style.display = "none";
+
                         }
                     }>
                         <input type='text' id="Name" name="Message.Name" placeholder='Nom'></input> 

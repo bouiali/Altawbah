@@ -83,6 +83,9 @@ function Reservation(){
                 <div>
                     <form onSubmit={
                         async (e)=>{
+
+                            document.querySelector(".loadingBackground").style.display = "flex";
+
                             e.preventDefault();
 
                             const formData = new FormData();
@@ -107,10 +110,13 @@ function Reservation(){
                                 body: formData
                             }).then(response => response.text())
                               .then(text =>{
-                                alert(text);
+                                alert("reservation recu, nous allons vous repondre tres prochainement");
                                 window.open("/","_self");
                             })
-                            .catch(error => alert('حدث خطأ: ' + error));     
+                            .catch(error => alert('حدث خطأ: ' + error));
+                            
+                            document.querySelector(".loadingBackground").style.display = "none";
+                            
                         }
                     }>
                         <div>

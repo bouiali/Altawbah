@@ -27,13 +27,42 @@ const FixedIcon = styled.i`
   color: green;
   z-index: 3;
   cursor: pointer;
-`
+`;
+
+const Loading = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 /80%);
+  z-index: 10;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  img{
+    animation: logo-scale infinite 1.5s linear;
+  }
+  @keyframes logo-scale {
+  0% {
+    transform: scale(100%);
+  }
+  50% {
+    transform: scale(110%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
+`;
+
 function App() {
   return (
     <>
       <Header/>
-      <FixedBackground alt="fixed-backgroun" src='images/footer3.webp'></FixedBackground>
+      <FixedBackground alt="fixed-background" src='images/footer3.webp'></FixedBackground>
       <FixedIcon className="fa-brands fa-whatsapp" onClick={()=>window.open("https://wa.me/+33774822082","_blank")}></FixedIcon>
+      <Loading className='loadingBackground'>
+        <img src='logo192.png'></img>
+      </Loading>
       <Routes>
         <Route path='/' element={<Home></Home>} ></Route>
         <Route path='/AboutUs' element={<AboutUs></AboutUs>}></Route>
