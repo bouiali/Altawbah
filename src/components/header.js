@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import trips from '../data/trips.json';
 
 
@@ -33,10 +33,12 @@ const HeaderContainer = styled.header`
         justify-content: space-between;
         gap: 30px;
         .active{
-            color: green;
-        }
-        .active::before{
-            background-color: green;
+            li{
+                color: green;
+                &::before{
+                    background-color: green;
+                }
+            }
         }
         li{
             position: relative;
@@ -98,7 +100,7 @@ const HeaderContainer = styled.header`
             background-color: white;
         }
     }
-    @media (max-width: 1000px){
+    @media (max-width: 1075px){
         .sections{
             display: none;
             flex-direction: column;
@@ -133,7 +135,7 @@ const HeaderContainer = styled.header`
             }
         }
     }
-    @media (min-width: 1001px){
+    @media (min-width: 1076px){
         .sections{
             display: flex !important;
         }
@@ -151,9 +153,9 @@ function Header(){
             </Link>
             <nav>
                 <ul className="sections">
-                    <Link to={"/"}>
-                        <li className='active'>Acceuil</li>
-                    </Link>
+                    <NavLink className={({isActive})=>isActive && 'active'} to={"/"}>
+                        <li>Acceuil</li>
+                    </NavLink>
                     <div className="select">
                         Omra
                         <i class="fa-solid fa-chevron-down" style={{marginLeft: "5px", fontSize: "10px"}}></i>
@@ -173,15 +175,18 @@ function Header(){
                             }
                         </div>
                     </div>
+                    <NavLink className={({isActive})=>isActive && 'active'} to={"/Hajj2026"}>                        
+                        <li>Hajj 2026</li>
+                    </NavLink>
                     <Link to={"/#services"}>                        
                         <li>Services</li>
                     </Link>
-                    <Link to={"/#contact"}>
+                    <Link className={({isActive})=>isActive && 'active'} to={"/#contact"}>
                         <li>Contactez nous</li>
                     </Link>
-                    <Link to={"/AboutUs"}>
+                    <NavLink className={({isActive})=>isActive && 'active'} to={"/AboutUs"}>
                         <li>qui sommes-nous ?</li>
-                    </Link>
+                    </NavLink>
                 </ul>
                 <ul className='stack' onClick={()=>{
                     const sections = document.querySelector(".sections")

@@ -487,14 +487,14 @@ function Home(){
                                 alert("merci de vous etre abonne");
                                 window.open("/","_self");
                             })
-                            .catch(error => alert('حدث خطأ: ' + error)); 
+                            .catch(error => alert(error)); 
 
                             document.querySelector(".loadingBackground").style.display = "none";
 
                         }
                     }>
                         <i class="far fa-envelope fa-lg"></i>
-                        <input type="email" id="email" placeholder="Votre email"/>
+                        <input type="email" id="email" placeholder="Votre email" required/>
                         <input type="submit" value="S'aboner"/>
                     </form>
                     <p>Abonnez-vous pour recevoir les derniers packages et promotions.</p>
@@ -528,15 +528,15 @@ function Home(){
                                     alert("nous avons bien recu votre demande");
                                     window.open("/","_self");
                                 })
-                                .catch(error => alert('حدث خطأ: ' + error));     
+                                .catch(error => alert(error));     
 
                                 document.querySelector(".loadingBackground").style.display = "none";
 
                         }
                     }>
-                        <input type='text' id="Name" name="Message.Name" placeholder='Nom'></input> 
-                        <input type='email' id='Email' name="Message.Email" placeholder='Email'></input>
-                        <textarea id='Message' name="Message.Message" placeholder='Demande'></textarea>
+                        <input type='text' id="Name" name="Message.Name" placeholder='Nom' required></input> 
+                        <input type='email' id='Email' name="Message.Email" placeholder='Email' required></input>
+                        <textarea id='Message' name="Message.Message" placeholder='Demande' required></textarea>
                         <button type='submit'>Envoyer</button>
                     </form>
                     <div className='contact_info'>

@@ -100,4 +100,26 @@ export const SectionHeading = styled.div`
     }
 `;
 
+export const ParagraphHeading = styled.div`
+    text-align: center;
+    position: relative;
+    h3{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: green;
+        text-transform: uppercase;
+        background-color: white;
+        width: fit-content;
+    }
+    &::before{
+        content:'';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: green;
+        left: 0;
+        top: 50%;
+    }
+`;
 export default GlobalStyles;

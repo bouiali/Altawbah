@@ -1,9 +1,8 @@
-import { useLocation } from "react-router-dom";
-import { SectionHeading } from "../globalStyles";
-import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { ParagraphHeading, SectionHeading } from "../globalStyles";
+import { useEffect, useState } from "react";
 
-const ReservationContainer = styled.div`
+const HajjContainer = styled.div`
     .land{
         width: 100%;
         height: 35vh; 
@@ -11,16 +10,18 @@ const ReservationContainer = styled.div`
     }
     section{
         background-color: white;
-        >div:last-child{
-            display: flex;
-            justify-content: space-around;
-        }
+    }
+    p{
+        padding: 20px 0;
+        line-height: 2;
     }
     form{
         display: flex;
         flex-direction: column;
         gap: 10px;
         width: fit-content;
+        padding: 20px 0;
+        margin: auto;
         >div, >input , textarea{
             display: flex;
             justify-content: space-between;
@@ -51,35 +52,57 @@ const ReservationContainer = styled.div`
     }
 `;
 
-function Reservation(){
-
-    const {type, bed, price} = useLocation().state;
+function Hajj(){
 
     let [personNum, setPersonNum] = useState(1);
 
     useEffect(()=>{
         document.querySelector("section").scrollIntoView();
-        let chamberType = document.getElementById("chamberType");
-        switch(bed){
-            case "4":
-                chamberType.value = "Q";
-                break;
-            case "3":
-                chamberType.value = "T";
-                break;
-            case "2":
-                chamberType.value = "D";
-                break;
-        }
     },[])
 
     return(
-        <ReservationContainer>
-            <div className="land" ></div>
+        <HajjContainer>
+            <div className="land"></div>
             <section>
                 <SectionHeading>
-                    <h2>Réservation</h2>
+                    <h2>hajj 2026</h2>
                 </SectionHeading>
+                <ParagraphHeading>
+                    <h3>Description</h3>
+                </ParagraphHeading>
+                <p> 
+                    Assalamou aleykoum,
+                    <br/>
+                    Nous vous remercions d’avoir choisi l’agence Ariane Voyage pour vous accompagner au Hajj 2026.
+                    <br/>
+                    Depuis 2021, les autorités saoudiennes ont mis en place une nouvelle organisation du Grand Pèlerinage via la plateforme Nusuk sur laquelle les futurs pèlerins doivent désormais acheter leur forfait directement auprès d’agences saoudiennes locales. Un partenariat entre ces derniers et les agences françaises a été établi afin qu’elles puissent être aux cotés des futurs pèlerins français depuis le choix du package et l’enregistrement des formalités administratives sur Nusuk jusqu’à l’encadrement tout le long du séjour.
+                    <br/>
+                    Forts de notre expérience depuis 15 ans, nous avons sélectionné plusieurs partenaires saoudiens renommés et institués dans l’organisation du Hajj. Leurs atouts : les vols directs avec la Saudi Airlines et la qualité de leurs hôtels.
+                    <br/>
+                    Pour consulter nos forfaits Hajj 2026, vous pouvez vous inscrire et remplir le formulaire.
+                </p>
+                <ParagraphHeading>
+                    <h3>étapes</h3>
+                </ParagraphHeading>
+                <p>
+                    Voici les étapes à suivre pour mener à bien votre projet de voyage :
+                    <br/>
+                    1/ Inscription sur la plateforme Nusuk Hajj. Cette formalité est gratuite.
+                    <br/>
+                    2/Remplir le formulaire ci-dessus,
+                    <br/>
+                    vous serez ajoutés à un groupe Télégram et Whatsapp qui vous permettront d’être tenus informés
+                    <br/>
+                    De l’ouverture des ventes sur le site Nusuk
+                    Du choix des packages sélectionnés par notre agence
+                    Du déroulement de votre séjour avant et après le départ.
+                    L’ Agence Ariane voyage propose une option payante à toute personne souhaitant mandater ses démarches administratives.
+                    <br/>
+                    Pour consulter nos forfaits Hajj 2026, vous pouvez vous inscrire et remplir le formulaire.
+                </p>
+                <ParagraphHeading>
+                    <h3>Inscription</h3>
+                </ParagraphHeading>
                 <div>
                     <form onSubmit={
                         async (e)=>{
@@ -89,7 +112,7 @@ function Reservation(){
                             e.preventDefault();
 
                             const formData = new FormData();
-                            formData.append("reservation.PackageType", `${type}, ${document.getElementById("chamberType").value} .`);
+                            formData.append("reservation.PackageType", `hajj 2026.`);
                             for(let i=0;i<personNum;++i){
                                 formData.append(`reservation.Persons[${i}].Gender`, document.querySelectorAll("#maleFemale")[i].value);
                                 formData.append(`reservation.Persons[${i}].FirstName`, document.querySelectorAll("#firstName")[i].value);
@@ -129,14 +152,6 @@ function Reservation(){
                                     <option value={2}>2</option>
                                     <option value={3}>3</option>
                                     <option value={4}>4</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label htmlFor="chamberType">Type de chambre : </label>
-                                <select id="chamberType" required>
-                                    <option value={"D"}>Double</option>
-                                    <option value={"T"}>Triple</option>
-                                    <option value={"Q"}>Quadruple</option>
                                 </select>
                             </div>
                         </div>
@@ -193,8 +208,8 @@ function Reservation(){
                     </form>
                 </div>
             </section>
-        </ReservationContainer>
+        </HajjContainer>
     );
 }
 
-export default Reservation;
+export default Hajj;

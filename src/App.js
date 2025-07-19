@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import TripDetails from './pages/tripDetails';
 import Reservation from './pages/reservation';
 import AboutUs from './pages/aboutUs';
+import Hajj from './pages/hajj';
 
 const FixedBackground = styled.img`
   position: fixed;
@@ -69,6 +70,7 @@ function App() {
         <Route path='/PackageDetails' element={<PackageDetails></PackageDetails>}></Route>
         <Route path='/TripDetails' element={<TripDetails></TripDetails>}></Route>
         <Route path='/Reservation' element={<Reservation></Reservation>}></Route>
+        <Route path='/Hajj2026' element={<Hajj></Hajj>}></Route>
       </Routes>
       <Footer/>
     </>
