@@ -73,11 +73,15 @@ function Hajj(){
                 <p> 
                     Assalamou aleykoum,
                     <br/>
-                    Nous vous remercions d’avoir choisi l’agence Ariane Voyage pour vous accompagner au Hajj 2026.
+                    <br/>
+                    Nous vous remercions d’avoir choisi l’agence Altawbah Voyage pour vous accompagner au Hajj 2026.
+                    <br/>
                     <br/>
                     Depuis 2021, les autorités saoudiennes ont mis en place une nouvelle organisation du Grand Pèlerinage via la plateforme Nusuk sur laquelle les futurs pèlerins doivent désormais acheter leur forfait directement auprès d’agences saoudiennes locales. Un partenariat entre ces derniers et les agences françaises a été établi afin qu’elles puissent être aux cotés des futurs pèlerins français depuis le choix du package et l’enregistrement des formalités administratives sur Nusuk jusqu’à l’encadrement tout le long du séjour.
                     <br/>
+                    <br/>
                     Forts de notre expérience depuis 15 ans, nous avons sélectionné plusieurs partenaires saoudiens renommés et institués dans l’organisation du Hajj. Leurs atouts : les vols directs avec la Saudi Airlines et la qualité de leurs hôtels.
+                    <br/>
                     <br/>
                     Pour consulter nos forfaits Hajj 2026, vous pouvez vous inscrire et remplir le formulaire.
                 </p>
@@ -87,16 +91,21 @@ function Hajj(){
                 <p>
                     Voici les étapes à suivre pour mener à bien votre projet de voyage :
                     <br/>
+                    <br/>
                     1/ Inscription sur la plateforme Nusuk Hajj. Cette formalité est gratuite.
+                    <br/>
                     <br/>
                     2/Remplir le formulaire ci-dessus,
                     <br/>
+                    <br/>
                     vous serez ajoutés à un groupe Télégram et Whatsapp qui vous permettront d’être tenus informés
+                    <br/>
                     <br/>
                     De l’ouverture des ventes sur le site Nusuk
                     Du choix des packages sélectionnés par notre agence
                     Du déroulement de votre séjour avant et après le départ.
-                    L’ Agence Ariane voyage propose une option payante à toute personne souhaitant mandater ses démarches administratives.
+                    L’ Agence Altawbah voyage propose une option payante à toute personne souhaitant mandater ses démarches administratives.
+                    <br/>
                     <br/>
                     Pour consulter nos forfaits Hajj 2026, vous pouvez vous inscrire et remplir le formulaire.
                 </p>
