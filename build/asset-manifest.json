@@ -1,15 +1,27 @@
 {
   "files": {
     "main.css": "/static/css/main.dc4d6ff2.css",
+<<<<<<< HEAD
     "main.js": "/static/js/main.7435d8b0.js",
     "static/js/453.531d4b9c.chunk.js": "/static/js/453.531d4b9c.chunk.js",
     "index.html": "/index.html",
     "main.dc4d6ff2.css.map": "/static/css/main.dc4d6ff2.css.map",
     "main.7435d8b0.js.map": "/static/js/main.7435d8b0.js.map",
+=======
+    "main.js": "/static/js/main.b9b69541.js",
+    "static/js/453.531d4b9c.chunk.js": "/static/js/453.531d4b9c.chunk.js",
+    "index.html": "/index.html",
+    "main.dc4d6ff2.css.map": "/static/css/main.dc4d6ff2.css.map",
+    "main.b9b69541.js.map": "/static/js/main.b9b69541.js.map",
+>>>>>>> 38434c2 (edit hajj descreption)
     "453.531d4b9c.chunk.js.map": "/static/js/453.531d4b9c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dc4d6ff2.css",
+<<<<<<< HEAD
     "static/js/main.7435d8b0.js"
+=======
+    "static/js/main.b9b69541.js"
+>>>>>>> 38434c2 (edit hajj descreption)
   ]
 }
