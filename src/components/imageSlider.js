@@ -69,7 +69,7 @@ function ImageSlider({links}){
                     },300)
                 }}
             />
-            <img alt="image" src={links[index]} ref={img}></img>
+            <img alt="image" src={links[index]} key={links[index]} ref={img}></img>
         </ImageSliderContainer>
     );
 }

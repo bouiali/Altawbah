@@ -352,7 +352,7 @@ function Home(){
 
             <Landing>
                 <div className='backgrounds'>
-                    <img alt="landing-background" className='home_background' src={paths[imageIndex]}/>
+                    <img alt="landing-background" className='home_background' src={paths[imageIndex]} key={paths[imageIndex]}/>
                 </div>
                 <div className='text'>
                     <h2>Altawbah voyages</h2>
