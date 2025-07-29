@@ -4,6 +4,10 @@ import { useLocation } from "react-router-dom";
 import { SectionHeading } from "../globalStyles";
 import { useEffect } from "react";
 import Price from "../components/price";
+import observer from "../functions/observer";
+import pathMaker from "../functions/pathMaker";
+import starsMaker from "../functions/starsMaker";
+import Header from "../components/header";
 
 const TripDetailsContainer = styled.div`
     background-color: transparent;
@@ -94,12 +98,63 @@ const TripDetailsContainer = styled.div`
             }
         }
     }
+    .services{
+        padding: 20px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        >div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+            text-align: center;
+            gap: 20px;
+            width: 280px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid green;
+            border-radius: 10px;
+            >i{
+                color: green;
+                font-size: 40px;
+            }
+        }
+    }
     .trip-details{
         >div{
             padding: 20px 0;
         }
         #flight-information{
-            /*border-bottom: 1px solid #777;*/
+            border-bottom: 1px solid #777;
+        }
+        #trip-program{
+            >div{
+                padding: 40px 0 0 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+                >div{
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 20px;
+                    width: 750px;
+                    h4, p{
+                        text-align: center;
+                    }
+                    >div{
+                        width: 50%;
+                        img{
+                            width: 100%;
+                            border-radius: 10px;
+                        }
+                    }
+                }
+                >div:last-child{
+                    flex-direction: row-reverse;
+                }
+            }
         }
     }
     .tickets{
@@ -180,6 +235,24 @@ const TripDetailsContainer = styled.div`
             }
         }
     }
+    @media(max-width: 815px){
+        .trip-details{
+            #trip-program{
+                >div{
+                    >div{
+                        flex-direction: column;
+                        width: 100%;
+                        >div{
+                            width: 100%;
+                        }
+                    }
+                    >div:last-child{
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+    }
 `;
 
 function TripDetails(){
@@ -191,302 +264,300 @@ function TripDetails(){
         document.getElementById(id).scrollIntoView();
     }
 
-    function starsMaker(stars){
-        let array = [];
-        for(let i=0;i<5;++i){
-            if(i<stars)
-                array.push(<i class="fa-solid fa-star" style={{color:"rgb(255, 212, 59)", fontSize:"20px"}}></i>);
-            else
-                array.push(<i class="fa-regular fa-star" style={{color:"rgb(255, 212, 59)", fontSize:"20px"}}></i>);
-        }
-        return array;
-    }
-
-    function pathMaker(path){
-        return (
-            <div className="path">
-                <div>
-                    <p>{path.airline}</p>
-                    <div style={{display: "flex", justifyContent: "space-between"}}>
-                        <div className="depart">
-                            <i class="fa-solid fa-plane-departure" ></i>
-                            <p>{path.from}</p>
-                            <p>{path.depart.date}</p>
-                            <p>{path.depart.time}</p>
-                        </div>
-                        <div className="arrival">
-                            <i class="fa-solid fa-plane-arrival" ></i>
-                            <p>{path.to}</p>
-                            <p>{path.arrival.date}</p>
-                            <p>{path.arrival.time}</p>
-                        </div>
-                    </div>
-                </div>
-                <hr/>
-                <div>
-                    <p>bagages</p>
-                    <div className="baggage">
-                        <p>enregistré: {path.checked_baggage}</p>
-                        <p>cabin: {path.cabin_baggage}</p>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
     useEffect(()=>{
+
         document.querySelector(".package-details").scrollIntoView();
+
+        document.querySelectorAll("section").forEach((e, i)=>{
+            observer.observe(e);
+        });
+
     },[])
 
     let date = new Date;
 
     return(
-        <TripDetailsContainer>
-            <div className="land" ></div>
-            <section className="package-details">
-                <SectionHeading>
-                    <h2>details</h2>
-                </SectionHeading>
-                <div className="summary">
-                    <h1>
-                        Départ {trip.from} <br/> 
-                        Omra {trip.month} {date.getFullYear()} <br/>
+        <>
+            <Header></Header>
+            <TripDetailsContainer>
+                <div className="land" ></div>
+                <section className="package-details">
+                    <SectionHeading>
+                        <h2>details</h2>
+                    </SectionHeading>
+                    <div className="summary">
+                        <h1>
+                            Départ {trip.from} <br/> 
+                            Omra {trip.month} {date.getFullYear()} <br/>
+                            {
+                                starsMaker(trip.package_type)
+                            }
+                        </h1>
+                        <button onClick={()=>document.getElementById("pricing").scrollIntoView()}>Réserver</button>
+                    </div>
+                    <h3>
+                        <i class="fa-solid fa-link"></i>
+                        liens de page :
+                    </h3>
+                    <ul>
+                        <li onClick={()=>goTo("package-features")}>
+                            <a>caractéristiques du package:</a>
+                        </li>
+                        <ul>
+                            <li onClick={()=>goTo("madinah-hotel")}>
+                                <a>Hôtel de Médine</a>
+                            </li>
+                            <li onClick={()=>goTo("makkah-hotel")}>
+                                <a>Hôtel de Makkah</a>
+                            </li>
+                            
+                            <li onClick={()=>goTo("included-services")}>
+                                <a>services inclus</a>
+                            </li>
+                            <li onClick={()=>goTo("optional-services")}>
+                                <a>services optionnels</a>
+                            </li>
+                            <li onClick={()=>goTo("requirments")}>
+                            <a>exigences</a>
+                            </li>
+                        </ul>
+                        <li onClick={()=>goTo("trip-details")}>
+                            <a>détails du voyage:</a>  
+                        </li>
+                        <ul>
+                            <li onClick={()=>goTo("flight-information")}>
+                                <a>informations de vol</a>
+                            </li>
+                            <li onClick={()=>goTo("trip-program")}>
+                                <a>programme du voyage</a>
+                            </li>
+                        </ul>
+                        <li onClick={()=>{goTo("pricing")}}>
+                            <a>tarifs</a>
+                        </li>
+                    </ul>
+                </section>
+                <section className="package-features" id="package-features">
+                    <SectionHeading>
+                        <h2>caractéristiques</h2>
+                    </SectionHeading>
+                    <div>
+                        <div className="hotel-details" id="madinah-hotel">
+                            <div>
+                                <h3>
+                                    <i class="fa-solid fa-hotel"></i>
+                                    la Médine : {trip.madinah_hotel.name}.
+                                </h3>
+                                <div className="details">
+                                    <div>
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>
+                                            étoiles  : 
+                                            {
+                                                starsMaker(trip.madinah_hotel.stars)
+                                            }
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-person-walking" />
+                                        <p>distance : {trip.madinah_hotel.distance} du haram.</p>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-utensils" />
+                                        <p>repas : {trip.madinah_hotel.meals}.</p>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-bed" />
+                                        <p>nuits : {trip.madinah_hotel.nights}.</p>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-map-location-dot"></i>
+                                        <p>emplacement : <a href={trip.madinah_hotel.location} target="_blank">emplacement de l'hôtel</a>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <ImageSlider links={trip.madinah_hotel.images_paths}></ImageSlider>
+                        </div>
+                        <div className="hotel-details" id="makkah-hotel">
+                            <ImageSlider links={trip.makkah_hotel.images_paths}></ImageSlider>
+                            <div>
+                                <h3>
+                                    <i class="fa-solid fa-hotel"></i>
+                                    makkah : {trip.makkah_hotel.name}.
+                                </h3>
+                                <div className="details">
+                                    <div>
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>
+                                            étoiles : 
+                                            {
+                                                starsMaker(trip.makkah_hotel.stars)
+                                            }
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-person-walking" />
+                                        <p>distance : {trip.makkah_hotel.distance} du haram.</p>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-utensils" />
+                                        <p>repas : {trip.makkah_hotel.meals}.</p>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-bed" />
+                                        <p>nuits : {trip.makkah_hotel.nights}.</p>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-map-location-dot"></i>
+                                        <p>emplacement : <a href={trip.makkah_hotel.location} target="_blank">emplacement de l'hôtel</a>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="included-services">
+                            <h3>
+                                <i class="fa-solid fa-list-check"></i>
+                                services inclus :
+                            </h3>
+                            <div className="services">
+                                <div>
+                                    <i class="fa-solid fa-file-lines"></i>
+                                    <p>visa</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-ticket"></i>
+                                    <p>billet d'avion</p>                              
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-hotel"></i>
+                                    <p>hôtels</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-bus"></i>
+                                    <p>bus modernes pour le transport</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-flag"></i>
+                                    <p>guide tout au long du voyage</p>
+                                    
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-kaaba"></i>
+                                    <p>makkah mazarat</p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-mosque"></i>
+                                    <p>madinah mazarat</p>
+                                </div>
+                            </div>
+                            <span style={{color: "red", fontSize: "smaller"}}>
+                                Alerte : Des frais supplémentaires de 100€ sont appliqués aux personnes titulaires de passeports non européens.
+                            </span>
+                        </div>
+                        <div id="optional-services">
+                            <h3>
+                                <i class="fa-solid fa-square-check"></i>
+                                services optionnels :
+                            </h3>
+                            <div className="services">
+                                <div>
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                    <p>pousseur : possibiliter de reserver un pousseur pour les persones en necessiter afin d'accomplire la omra prix de prestation 100€.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="requirments">
+                            <h3>
+                                <i class="fa-solid fa-folder"></i>
+                                exigences :
+                            </h3>
+                            <div className="details">
+                                <div>
+                                    <i class="fa-solid fa-passport"></i>
+                                    <p>Passeport : valable au moins 6 mois à compter de la date de retour.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section className="trip-details" id="trip-details">
+                    <SectionHeading>
+                        <h2>Le programme</h2>
+                    </SectionHeading>
+                    <div id="flight-information">
+                        <h3>
+                            <i class="fa-solid fa-plane"></i>
+                            informations de vol :
+                        </h3>
+                        <div className="tickets">
+                            <div className="ticket">
+                                <h4>billet aller</h4>
+                                {
+                                    ticketDetails.go_ticket.map((path)=>pathMaker(path))
+                                }
+                            </div>
+                            <div className="ticket">
+                                <h4>billet retour</h4>
+                                {
+                                    ticketDetails.return_ticket.map((path)=>pathMaker(path))
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div id="trip-program">
+                        <h3>
+                            <i class="fa-solid fa-calendar-days"></i>
+                            programme du voyage :
+                        </h3>
+                        <div>
                         {
-                            starsMaker(trip.package_type)
+                            trip.program.map((e)=>{
+                                return(
+                                    <div>
+                                        <div>
+                                            <h4>{e.city}</h4>
+                                            <br/>
+                                            <br/>
+                                            <p>{e.description}</p>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <h5>Programme :</h5>
+                                            <br/>
+                                            <br/>
+                                            <ul>
+                                                {
+                                                    e.list.map((e)=>{
+                                                        return(
+                                                            <li>{e}</li>
+                                                        );
+                                                    })
+                                                }
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <img src={e.image}></img>
+                                        </div>
+                                    </div>
+                                );
+                            })
                         }
-                    </h1>
-                    <button onClick={()=>document.getElementById("pricing").scrollIntoView()}>Réserver</button>
-                </div>
-                <h3>
-                    <i class="fa-solid fa-link"></i>
-                    liens de page :
-                </h3>
-                <ul>
-                    <li onClick={()=>goTo("package-features")}>
-                        <a>caractéristiques du package:</a>
-                    </li>
-                    <ul>
-                        <li onClick={()=>goTo("makkah-hotel")}>
-                            <a>Hôtel de Makkah</a>
-                        </li>
-                        <li onClick={()=>goTo("madinah-hotel")}>
-                            <a>Hôtel de Médine</a>
-                        </li>
-                        <li onClick={()=>goTo("included-services")}>
-                            <a>services inclus</a>
-                        </li>
-                        <li onClick={()=>goTo("optional-services")}>
-                            <a>services optionnels</a>
-                        </li>
-                        <li onClick={()=>goTo("requirments")}>
-                           <a>exigences</a>
-                        </li>
-                    </ul>
-                    <li onClick={()=>goTo("trip-details")}>
-                        <a>détails du voyage:</a>  
-                    </li>
-                    <ul>
-                        <li onClick={()=>goTo("flight-information")}>
-                            <a>informations de vol</a>
-                        </li>
-                    </ul>
-                    <li onClick={()=>{goTo("pricing")}}>
-                        <a>tarifs</a>
-                    </li>
-                </ul>
-            </section>
-            <section className="package-features" id="package-features">
-                <SectionHeading>
-                    <h2>caractéristiques</h2>
-                </SectionHeading>
-                <div>
-                    <div className="hotel-details" id="makkah-hotel">
-                        <div>
-                            <h3>
-                                <i class="fa-solid fa-hotel"></i>
-                                makkah : {trip.makkah_hotel.name}.
-                            </h3>
-                            <div className="details">
-                                <div>
-                                    <i class="fa-solid fa-star"></i>
-                                    <p>
-                                        étoiles : 
-                                        {
-                                           starsMaker(trip.makkah_hotel.stars)
-                                        }
-                                    </p>
-                                </div>
-                                <div>
-                                    <i class="fa-solid fa-person-walking" />
-                                    <p>distance : {trip.makkah_hotel.distance} du haram.</p>
-                                </div>
-                                <div>
-                                    <i class="fa-solid fa-utensils" />
-                                    <p>repas : {trip.makkah_hotel.meals}.</p>
-                                </div>
-                                <div>
-                                    <i class="fa-solid fa-bed" />
-                                    <p>nuits : {trip.makkah_hotel.nights}.</p>
-                                </div>
-                                <div>
-                                    <i class="fa-solid fa-map-location-dot"></i>
-                                    <p>emplacement : <a href={trip.makkah_hotel.location} target="_blank">emplacement de l'hôtel</a>.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <ImageSlider links={trip.makkah_hotel.images_paths}></ImageSlider>
-                    </div>
-                    <div className="hotel-details" id="madinah-hotel">
-                        <ImageSlider links={trip.madinah_hotel.images_paths}></ImageSlider>
-                        <div>
-                            <h3>
-                                <i class="fa-solid fa-hotel"></i>
-                                la Médine : {trip.madinah_hotel.name}.
-                            </h3>
-                            <div className="details">
-                                <div>
-                                    <i class="fa-solid fa-star"></i>
-                                    <p>
-                                        taux : 
-                                        {
-                                            starsMaker(trip.madinah_hotel.stars)
-                                        }
-                                    </p>
-                                </div>
-                                <div>
-                                    <i class="fa-solid fa-person-walking" />
-                                    <p>distance : {trip.madinah_hotel.distance} du haram.</p>
-                                </div>
-                                <div>
-                                    <i class="fa-solid fa-utensils" />
-                                    <p>repas : {trip.madinah_hotel.meals}.</p>
-                                </div>
-                                <div>
-                                    <i class="fa-solid fa-bed" />
-                                    <p>nuits : {trip.madinah_hotel.nights}.</p>
-                                </div>
-                                <div>
-                                    <i class="fa-solid fa-map-location-dot"></i>
-                                    <p>emplacement : <a href={trip.madinah_hotel.location} target="_blank">emplacement de l'hôtel</a>.</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div id="included-services">
-                        <h3>
-                            <i class="fa-solid fa-list-check"></i>
-                            services inclus :
-                        </h3>
-                        <div className="details">
-                            <div>
-                                <i class="fa-solid fa-check"></i>
-                                <p>visa.
-                                    <span style={{color: "red", fontSize: "smaller"}}>
-                                        (Des frais supplémentaires de 100 euros sont appliqués aux personnes titulaires de passeports non européens.)
-                                    </span>
-                                </p>
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-check"></i>
-                                <p>billet d'avion.</p>                              
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-check"></i>
-                                <p>hôtels.</p>
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-check"></i>
-                                <p>bus modernes pour le transport : depuis et vers l'aéroport, Médine et Makkah Mazarat et entre Makkah et Médine.</p>
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-check"></i>
-                                <p>guide tout au long du voyage . </p>
-                                
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-check"></i>
-                                <p>makkah mazarat : jabal al-nour, arafah, muzdalifah, mina et jabal thawr.</p>
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-check"></i>
-                                <p>madinah mazarat : quba, qiblatain, ouhoud et palmeraie.</p>
-                            </div>
-                        </div>
+                </section>
+                <section id="pricing" style={{backgroundColor:"#cecece"}}>
+                    <SectionHeading>
+                        <h2>tarifs</h2>
+                    </SectionHeading>
+                    <div>
+                        <Price type={`${trip.from}, ${trip.date}`} chamber="quade" bed="4" price={trip.price.quade}></Price>
+                        <Price type={`${trip.from}, ${trip.date}`} chamber="triple" bed="3" price={trip.price.triple}></Price>
+                        <Price type={`${trip.from}, ${trip.date}`} chamber="double" bed="2" price={trip.price.double}></Price>
                     </div>
-                    <div id="optional-services">
-                        <h3>
-                            <i class="fa-solid fa-square-check"></i>
-                            services optionnels :
-                        </h3>
-                        <div className="details">
-                            <div>
-                                <i class="fa-solid fa-train-subway"></i>
-                                <p>Réservation de train : pour voyager entre Médine et Makkah, cela prend 2h au lieu de 4h en voiture, transport compris entre l'hôtel et la gare, 90€ pour l'économique ou 130€ pour les affaires.</p>
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-wheelchair"></i>
-                                <p>pousseur : possibiliter de reserver un pousseur pour les persones en necessiter afin d'accomplire la omra prix de prestation 100€.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="requirments">
-                        <h3>
-                            <i class="fa-solid fa-folder"></i>
-                            exigences :
-                        </h3>
-                        <div className="details">
-                            <div>
-                                <i class="fa-solid fa-passport"></i>
-                                <p>Passeport : valable au moins 6 mois à compter de la date de retour.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className="trip-details" id="trip-details">
-                <SectionHeading>
-                    <h2>Le programme</h2>
-                </SectionHeading>
-                <div id="flight-information">
-                    <h3>
-                        <i class="fa-solid fa-plane"></i>
-                        informations de vol :
-                    </h3>
-                    <div className="tickets">
-                        <div className="ticket">
-                            <h4>billet aller</h4>
-                            {
-                                ticketDetails.go_ticket.map((path)=>pathMaker(path))
-                            }
-                        </div>
-                        <div className="ticket">
-                            <h4>billet retour</h4>
-                            {
-                                ticketDetails.return_ticket.map((path)=>pathMaker(path))
-                            }
-                        </div>
-                    </div>
-                </div>
-                {/*
-                <div id="trip-program">
-                    <h3>
-                        <i class="fa-solid fa-calendar-days"></i>
-                        programme du voyage :
-                    </h3>
-                </div>
-                */}
-            </section>
-            <section id="pricing" style={{backgroundColor:"#cecece"}}>
-                <SectionHeading>
-                    <h2>tarifs</h2>
-                </SectionHeading>
-                <div>
-                    <Price type={`${trip.from}, ${trip.date}`} chamber="quade" bed="4" price={trip.price.quade}></Price>
-                    <Price type={`${trip.from}, ${trip.date}`} chamber="triple" bed="3" price={trip.price.triple}></Price>
-                    <Price type={`${trip.from}, ${trip.date}`} chamber="double" bed="2" price={trip.price.double}></Price>
-                </div>
-            </section>
-        </TripDetailsContainer>
+                </section>
+            </TripDetailsContainer>
+        </>
     );
 }
 

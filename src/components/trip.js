@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import starsMaker from "../functions/starsMaker";
 
 const TripContainer = styled.div`
     position: relative;
@@ -73,24 +74,13 @@ const TripContainer = styled.div`
 
 function Trip({el, index}){
 
-    function starsMaker(stars){
-        let array = [];
-        for(let i=0;i<5;++i){
-            if(i<stars)
-                array.push(<i class="fa-solid fa-star" style={{color:"rgb(255, 212, 59)", fontSize:"20px"}}></i>);
-            else
-                array.push(<i class="fa-regular fa-star" style={{color:"rgb(255, 212, 59)", fontSize:"20px"}}></i>);
-        }
-        return array;
-    }
-
     return(
         <TripContainer>
             <h3>Omra {el.month}</h3>
             <h3 style={{fontSize : "25px", fontWeight: "normal"}}>Depart de {el.from}</h3>
             <div style={{textAlign :"center", padding : "20px 0"}}>
                 {
-                    [""].map(()=>starsMaker(el.package_type))
+                    starsMaker(el.package_type)
                 }
             </div>
             <img alt="trip-image" src={el.image}/>

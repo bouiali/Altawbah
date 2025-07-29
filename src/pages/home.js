@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import {SectionHeading} from '../globalStyles';
-import packages from '../data/packages.json';
 import services from '../data/services.json';
 import trips from '../data/trips.json';
-import Package from '../components/package';
 import Service from '../components/service';
 import Trip from '../components/trip';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
+import observer from "../functions/observer";
+import Header from '../components/header';
 
 
-const Landing = styled.section`
+const Landing = styled.div`
     position: relative;
     left: 0;
     top: 0;
@@ -113,30 +113,6 @@ const Landing = styled.section`
             gap: 20px;
             opacity: 1;
         }
-    }
-`;
-
-const Packages = styled.section`
-    background-color: white;
-    .packages_container{
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-    }
-    >p{
-        text-align: center;
-        color: black;
-        padding: 30px 0;
-        font-size: 25px;
-        font-weight: 400;
-    }
-
-    >button{
-        background-color: green;
-        color: white;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
     }
 `;
 
@@ -339,9 +315,6 @@ function Home(){
     let paths = ["images/haram-gate.jpeg","images/haram-gate2.jpeg"];
     let [imageIndex, setImageIndex] = useState(0);
 
-    //packeges
-    let packagesData = packages.packages;
-
     //trips
     let tripsData = trips.trips;
 
@@ -364,8 +337,17 @@ function Home(){
         }
     },[location]);
 
+    useEffect(()=>{
+        document.querySelectorAll("section").forEach((e, i)=>{
+            observer.observe(e);
+        });
+    },[])
+
     return(
         <>
+
+            <Header></Header>
+
             {/* landing */}
 
             <Landing>
@@ -399,31 +381,10 @@ function Home(){
                 />
             </Landing>
 
-            {/* packages 
-            <Packages id='packages'>
-                <SectionHeading>
-                    <h2>Packages</h2>
-                </SectionHeading>
-                <div className='packages_container'>
-                    {
-                        packagesData != null ? (
-                            packagesData.map((el)=>{
-                                return(
-                                    <Package el = {el}/>
-                                );
-                            })
-                        ):null
-                    }
-                </div>
-                <p>Contact us if you have special request</p>
-                <button onClick={()=>{ window.open("#contact","_self") }}>Contact us</button>
-            </Packages>
-            */}
-
             {/*reception*/}
 
             <Reception>
-                <h1>Agence Omra et Hajj 2025 2026 <br/> Omra pas cher</h1>
+                <h1>Agence Omra et Hajj 2025 2026 <br/> Omra pas chère</h1>
             </Reception>
             
             {/* trip */}
@@ -495,7 +456,7 @@ function Home(){
                     }>
                         <i class="far fa-envelope fa-lg"></i>
                         <input type="email" id="email" placeholder="Votre email" required/>
-                        <input type="submit" value="S'aboner"/>
+                        <input type="submit" value="S'abonner"/>
                     </form>
                     <p>Abonnez-vous pour recevoir les derniers packages et promotions.</p>
                 </div>
@@ -541,7 +502,7 @@ function Home(){
                     </form>
                     <div className='contact_info'>
                         <div>
-                            <h3>Entrer en contact</h3>
+                            <h3>Entrez en contact</h3>
                             <p>
                                 <i class="fa-solid fa-phone" />
                                 +966 56 672 1559

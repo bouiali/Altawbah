@@ -36,7 +36,18 @@ const GlobalStyles = createGlobalStyle`
         text-decoration: none;
     }
     section{
-        padding: 50px 20px;
+        padding: 300px 20px 50px 20px;
+        transition: 2000ms;
+        >*{
+            transition: 2000ms;
+            opacity: 0;
+        }
+    }   
+    .visible{
+        padding: 50px 20px 50px 20px;
+        >*{
+            opacity: 1;
+        }
     }
 `;
 
