@@ -111,7 +111,7 @@
         "image":"images/package-background.jpg",
         "package_type":"5",
         "date":"2025/12/26",
-        "start_from_price":"1399€",
+        "start_from_price":"2299€",
         "makkah_hotel":{
             "name":"sheraton",
             "stars":"5",
@@ -208,9 +208,9 @@
             }
         ],
         "price":{
-            "double":"1699€",
-            "triple":"1499€",
-            "quade":"1399€"
+            "double":"2699€",
+            "triple":"2399€",
+            "quade":"2299€"
         }
     }
 ]}
