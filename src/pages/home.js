@@ -505,10 +505,6 @@ function Home(){
                             <h3>Entrez en contact</h3>
                             <p>
                                 <i class="fa-solid fa-phone" />
-                                +966 56 672 1559
-                            </p>
-                            <p>
-                                <i class="fa-solid fa-phone" />
                                 +33 7 74 82 20 82
                             </p>
                         </div>
