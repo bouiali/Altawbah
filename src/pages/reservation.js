@@ -114,17 +114,29 @@ function Reservation(){
                                 formData.append("reservation.Email", document.getElementById("email").value);
                                 formData.append("reservation.WheelChairPusher", document.getElementById("wheelchair").checked.toString());
                                 formData.append("reservation.TrainBooking", false);
-                                formData.append("reservation.Notes", document.getElementById("notes").value);
+                                formData.append("reservation.Notes", document.getElementById("notes").value || "No notes");
 
-                                await fetch("https://altawbahapi.onrender.com/reserve", {
-                                    method: "POST", 
-                                    body: formData
-                                }).then(response => response.text())
-                                .then(text =>{
+                                try {
+                                    const response = await fetch('https://altawbahapi.onrender.com/reserve', {
+                                        method: 'POST',
+                                        body: formData
+                                    });
+
+                                    if (!response.ok) {
+                                        let errorMessage;
+                                        try {
+                                            const errorData = await response.json();
+                                            errorMessage = errorData.message || JSON.stringify(errorData);
+                                        } catch {
+                                            errorMessage = await response.text();
+                                        }
+                                        throw new Error(errorMessage || "unknown error");
+                                    }
                                     alert("reservation recu, nous allons vous repondre tres prochainement");
                                     window.open("/","_self");
-                                })
-                                .catch(error => alert(error));
+                                } catch (err) {
+                                    alert("some issues : " + err.message);
+                                }
                                 
                                 document.querySelector(".loadingBackground").style.display = "none";
                                 

@@ -440,15 +440,28 @@ function Home(){
                             const formData = new FormData();
                             formData.append("Email", document.getElementById("email").value);
 
-                            await fetch("https://altawbahapi.onrender.com/subscribe",{
-                                method:"POST",
-                                body: formData
-                            }).then(response => response.text())
-                              .then(text =>{
+                            
+                            try {
+                                const response = await fetch('https://altawbahapi.onrender.com/subscribe', {
+                                    method: 'POST',
+                                    body: formData
+                                });
+
+                                if (!response.ok) {
+                                    let errorMessage;
+                                    try {
+                                        const errorData = await response.json();
+                                        errorMessage = errorData.message || JSON.stringify(errorData);
+                                    } catch {
+                                        errorMessage = await response.text();
+                                    }
+                                    throw new Error(errorMessage || "unknown error");
+                                }
                                 alert("merci de vous etre abonne");
                                 window.open("/","_self");
-                            })
-                            .catch(error => alert(error)); 
+                            } catch (err) {
+                                alert("some issues : " + err.message);
+                            }
 
                             document.querySelector(".loadingBackground").style.display = "none";
 
@@ -480,18 +493,30 @@ function Home(){
                             formData.append("Message.Name", document.getElementById("Name").value);
                             formData.append("Message.Email", document.getElementById("Email").value);
                             formData.append("Message.Message", document.getElementById("Message").value);
-                
-                            await fetch("https://altawbahapi.onrender.com/contact", {
-                                method: "POST",
-                                body: formData
-                            }).then(response => response.text())
-                                .then(text =>{
-                                    alert("nous avons bien recu votre demande");
-                                    window.open("/","_self");
-                                })
-                                .catch(error => alert(error));     
+                            
+                            try {
+                                const response = await fetch('https://altawbahapi.onrender.com/contact', {
+                                    method: 'POST',
+                                    body: formData
+                                });
 
-                                document.querySelector(".loadingBackground").style.display = "none";
+                                if (!response.ok) {
+                                    let errorMessage;
+                                    try {
+                                        const errorData = await response.json();
+                                        errorMessage = errorData.message || JSON.stringify(errorData);
+                                    } catch {
+                                        errorMessage = await response.text();
+                                    }
+                                    throw new Error(errorMessage || "unknown error");
+                                }
+                                alert("nous avons bien recu votre demande");
+                                window.open("/","_self");
+                            } catch (err) {
+                                alert("some issues : " + err.message);
+                            }
+
+                            document.querySelector(".loadingBackground").style.display = "none";
 
                         }
                     }>
@@ -508,17 +533,6 @@ function Home(){
                                 +33 7 74 82 20 82
                             </p>
                         </div>
-                        {/*
-                        <div>
-                            <h3>where we are</h3>
-                            <address>
-                                <i class="fa-solid fa-location-dot" />
-                                madinah, center<br/>
-                                123-4567-890<br/>
-                                Ksa
-                            </address>
-                        </div>
-                        */}
                         <div>
                             <h3>Nos heures de travails</h3>
                             <p>
